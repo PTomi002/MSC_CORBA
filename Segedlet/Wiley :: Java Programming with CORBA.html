@@ -1,0 +1,1309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <meta name="GENERATOR" content="Mozilla/4.72 [en] (WinNT; I) [Netscape]">
+
+<!------------------------------------>
+<!-- Begin head element             -->
+<!------------------------------------>
+<title>Wiley :: Java Programming with CORBA</title>
+<link href="Wiley%20::%20Java%20Programming%20with%20CORBA_files/style.css" rel="stylesheet" type="text/css">
+<!--[if lt IE 7]>
+    <link href="http://www.wiley.com/include/css/wiley/style-ie.css" rel="stylesheet" type="text/css">
+<![endif]-->
+<!------------------------------------>
+<!-- End head element               -->
+<!------------------------------------>
+
+  </head>
+
+  <body leftmargin="0" topmargin="0" rightmargin="0" vlink="#e00000" text="#000059" marginwidth="0" marginheight="0" link="#0000ff" alink="#b4b200" bgcolor="#ffffff">
+  <!------------------------------------>
+<!-- Begin mini nav element         -->
+<!------------------------------------>
+<div id="page">
+    <div id="topnav-sm">
+        <img src="Wiley%20::%20Java%20Programming%20with%20CORBA_files/wiley-logo-sm.gif" alt="wiley-logo-sm.gif" width="155" height="50">
+        <div>&gt; <a href="http://www.wiley.com/">wiley.com</a></div>
+    </div>
+    <div id="content">
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td>
+<!------------------------------------>
+<!-- End mini nav element           -->
+<!------------------------------------>
+
+    <table summary="outer" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr>
+        <td><!-- column 1 (text) --></td>
+
+        <td valign="TOP">
+          <h2>JAVA PROGRAMMING WITH CORBA, 3E</h2>
+
+          <h3>Sample: Chapter 4</h3>
+
+          <h1>Chapter 4<br>
+           A First Java ORB Application&nbsp;</h1>
+          In this chapter we will use two Hello World examples to
+          introduce the principles of building distributed
+          applications with Java ORBs. Those examples expand the
+          Hello World example introduced in Chapter 3, "Overview of
+          Java and Java ORBs." We will implement a client that is a
+          Java application, a client that is a Java applet, and a
+          server hosting an object implementation. Figure 4.1
+          illustrates the components of our examples.
+
+          <center>
+            <img src="Wiley%20::%20Java%20Programming%20with%20CORBA_files/figure4-1.jpg" alt="figure4.1">
+          </center>
+
+          <center>
+            <h4>Figure 4.1 Hello World application.</h4>
+          </center>
+          All code is available in electronic form from the
+          companion web site for this book at
+          www.wiley.com/compbooks/brose. The examples use only
+          standard CORBA features so the ORB you choose to run this
+          code on does not matter - as long as it complies to CORBA
+          version 2.3. Various ORB products that conform to the
+          CORBA specification differentiate themselves with
+          implementation details that have an impact on performance
+          and scalability. Most also have extensions to the CORBA
+          core.
+
+          <p>This chapter starts with a summary of the development
+          process for CORBA applications in Java (section 4.1). We
+          give detailed explanations of the development of a simple
+          example application (sections 4.2 through 4.8) and then
+          extend this to include more features (section 4.9). In
+          Chapter 9, "Advanced Features," we will return to
+          application development with a substantial example.</p>
+
+          <h4>4.1 Summary of the CORBA Development Process</h4>
+          The examples presented in this chapter follow roughly the
+          same steps:
+
+          <ul>
+            <li>Write some IDL that describes the interfaces to the
+            object or objects that will be used or
+            implemented.</li>
+
+            <li>Compile the IDL file. This produces the stub and
+            skeleton code that provides location transparency. That
+            is, it will cooperate with the ORB library to convert
+            an object reference into a network connection to a
+            remote server and then marshal the arguments we provide
+            to an operation on the object reference, convey them to
+            the correct method in the object denoted by our object
+            reference, execute the method, and return the
+            results.</li>
+
+            <li>Identify the IDL compiler-generated interfaces and
+            classes that we need to use or specialize in order to
+            invoke or implement operations.</li>
+
+            <li>Write code to initialize the ORB and inform it of
+            any CORBA objects that we have created.</li>
+
+            <li>Compile all the generated code and our application
+            code with a Java compiler.</li>
+
+            <li>Run the distributed application.</li>
+          </ul>
+          Figure 4.2 shows the use of IDL and the IDL compiler when
+          building the application.&nbsp;
+
+          <center>
+            <img src="Wiley%20::%20Java%20Programming%20with%20CORBA_files/figure4-2-small.jpg" alt="figure4.2">
+          </center>
+
+          <center>
+            <h4>Figure 4.2 Building the Hello World
+            application.</h4>
+          </center>
+          When you execute the IDL compiler for the Java ORB you
+          have installed, it will generate two sets of Java code
+          files: stub code to create proxy objects that a client
+          can use for making invocations on object references of
+          the interface types defined in the IDL file, and skeleton
+          code for access to objects that support those interfaces.
+
+
+          <h4>4.2 Environment Setup</h4>
+          Before we can start with the examples we have to set up a
+          working environment. We implemented the examples with
+          Visibroker for Java 4.1, and Sun Microsystems' Java
+          Development Kit (JDK) version 1.2. Because our example
+          code relies on only standardized interfaces and does not
+          use any proprietary ORB extensions it will run unchanged
+          on any CORBA 2.3 compliant Java ORB. Code portability was
+          verified by also running all code on JacORB 1.2. For
+          setups in different environments, the reader is referred
+          to the installation manuals for the particular products
+          and platforms.
+
+          <p>We use JDK 1.2, assuming that the path is set
+          appropriately and that the Java compiler javac and that
+          the Java run-time system java isare&nbsp; installed. We
+          also use Inprise Corp.'s&nbsp; Visibroker for Java
+          version 4.10, assuming that the path and classpath are
+          set appropriately. Visibroker’s IDL compiler is
+          called idl2java. Note that we need to overcome applet
+          sandbox and firewall restrictions unless the server is
+          running on the Wweb server from which the applet is
+          downloaded from. To do this, we run the gatekeeper,
+          Visibroker’s IIOP gateway, and HTTP tunneling
+          mechanisms:</p>
+<pre>prompt&gt; gatekeeper    &amp;
+</pre>
+          Many Java ORBs provide a similar IIOP gateway as part of
+          their applet support. OrbixWeb&amp;rsquo;s, for example,
+          is called Wonderwall. In JacORB, it would be started as
+          appligator. The interface between the ORB and this
+          gateway is not standardized, so using a different ORB
+          with applets also requires using this ORB's IIOP gateway
+          mechanism. The code itself remains unchanged, however.
+
+          <h4>4.3 Interface Specification</h4>
+          Our first example provides the same functionality as the
+          one introduced in Chapter 3. A client invokes an
+          operation hello() on the interface of a potentially
+          remote object of type GoodDay. The result of the
+          invocation is a message that is printed by the client.
+
+          <p>For any CORBA application we must write an IDL
+          specification that defines data types and interfaces,
+          including attributes and operations. For our example, we
+          defined an IDL interface called HelloWorld which
+          resembles the Java interface of the Hello World example
+          from Chapter 3. We place the IDL file HelloWorld.idl,
+          containing this definition, in a directory which
+          represents its location in the book:
+          com/wiley/compbooks/brose/chapter4/simple.</p>
+
+          <p>//HelloWorld.idl&nbsp;<br>
+           module com&nbsp;&nbsp; {<br>
+           module wiley {&nbsp;<br>
+           module compbooks {&nbsp;<br>
+           module brose {<br>
+           module chapter4 {&nbsp;<br>
+           module simple {&nbsp;<br>
+           &nbsp;&nbsp; module helloWorld {&nbsp;<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; interface&nbsp;
+          GoodDay&nbsp; {&nbsp;<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string&nbsp;
+          hello();&nbsp;<br>
+           &nbsp;&nbsp; };<br>
+           };};};};};};};&nbsp;<br>
+           &nbsp;<br>
+           &nbsp;</p>
+
+          <p>The file contains the specification of a hierarchy of
+          modules. It is good specification style to use modules to
+          create a separate name space for an application or its
+          major components, and to follow the same naming
+          conventions that have been introduced for Java packages.
+          To align with Java coding conventions, we recommend using
+          module names that begin with lower case letters and
+          interface names beginning with capital letters.</p>
+
+          <p>Within the module helloWorld we define one interface:
+          GoodDay. The interface is not in any inheritance
+          relationship. It provides one operation hello(). This
+          operation does not have any parameters and returns a
+          result of type string.</p>
+
+          <p>As we will see in the implementation, the object
+          returns a string describing its locality as part of the
+          result of the operation, hello(). The operation returns a
+          message saying: "Hello World, from <i>location</i>."</p>
+
+          <h4>4.4 Compiling the IDL</h4>
+          The next step in the application development is to
+          compile the IDL to generate the stub and skeleton code.
+          The compile command in Visibroker for Java is
+<pre>prompt&gt; idl2java -strict -root_dir generated HelloWorld.idl
+
+</pre>
+          The IDL compiler maps each module to a Java package and
+          uses Java conventions for putting packages in
+          directories. Both directory and package are named after
+          the IDL module. The Java package contains Java interfaces
+          and classes implementing stub, skeleton, and other code
+          to support your distributed application. To distinguish
+          between generated code and handwritten code we direct the
+          compiler to place its output in a different directory
+          tree by supplying it with the name of root directory for
+          the generated code. This directory is called generated.
+          The -strict switch tells the compiler that it must not
+          include any proprietary extensions in the generated code
+          but abide by the letter of the specification, in
+          particular the Java ORB Portability Interfaces, which we
+          explain in Chapter 5, "OMG IDL to Java Mapping." These
+          interfaces ensure the portability of code from one ORB to
+          another.
+
+          <p>While the names of compiler switches depend on which
+          vendor's compiler is used, the files generated by any
+          compliant IDL compiler are always the same. These
+          are:</p>
+<pre>GoodDay.java       GoodDayHolder.java GoodDayHelper.java
+GoodDayStub.java   GoodDayPOA.java    GoodDayOperations.java
+GoodDayPOATie.java
+
+</pre>
+          The IDL interface GoodDay is mapped to a Java interface
+          of the same name in the file GoodDay.java. The class
+          GoodDayHolder provides support to handle IDL inout and
+          out parameters, as you will see toward the end of this
+          chapter. The class GoodDayHelper contains miscellaneous
+          static methods, most importantly the narrow() method. In
+          Chapter 5 we explain the complete mapping from OMG IDL to
+          Java and also the meaning of the generated Java classes
+          and interfaces.
+
+          <p>The remaining files that are generated by the IDL
+          compiler contain classes that have general functionality.
+          The class _GoodDayStub contains the stub code that allows
+          us to create a client-side proxy for the object
+          implementation. The class GoodDayPOA contains the
+          skeleton code that is used with the POA. The interface
+          GoodDayOperations and the class GoodDayPOATie are used
+          for the Tie mechanism on the server side. This is
+          explained in Chapter 5 and demonstrated by an example in
+          Chapter 9.</p>
+
+          <h4>4.5 A Client as a Java Application</h4>
+          When implementing a client as a Java application, we
+          don&amp;rsquo;t have to worry about the restrictions that
+          exist for applets, and so we can explain CORBA
+          programming in its usual form. A client implementation
+          follows these steps:
+
+          <ul>
+            <li>Initialize the CORBA environment; that is, obtain a
+            reference to the ORB.</li>
+
+            <li>Obtain an object reference for the object on which
+            to invoke operations.</li>
+
+            <li>Invoke operations and process the results.</li>
+          </ul>
+
+          <h5>4.5.1 Generated Java Interface</h5>
+          The Java interface which corresponds to the interface
+          defined in IDL is an empty interface. It extends two base
+          classes for CORBA Objects and IDL entities and the Java
+          interface GoodDayOperations, which contains the actual
+          operation signatures
+<pre>// generated Java - GoodDay.java
+package com.wiley.compbooks.brose.chapter4.simple.helloWorld;
+
+public interface GoodDay extends GoodDayOperations,
+org.omg.CORBA.Object,
+org.omg.CORBA.portable.IDLEntity
+{
+}
+
+</pre>
+          The GoodDayOperations interface defines a Java method
+          hello() which returns a Java string. The reason for this
+          division of labour between GoodDay and GoodDayOperations
+          is that in some cases it is necessary to use an
+          operations interface that does not extend
+          org.omg.CORBA.Object. This will be explained in more
+          detail in Chapter 6, "ORB Run-Time System."
+<pre>// generated Java - GoodDayOperations.java
+package com.wiley.compbooks.brose.chapter4.simple.helloWorld;
+
+public interface GoodDayOperations {
+    public java.lang.String hello();
+}
+
+</pre>
+
+          <h5>4.5.2 Initializing the ORB</h5>
+          We define a Java class Client our implementation package
+          and define the main() method for this class. Initializing
+          an ORB means obtaining a reference to the ORB
+          pseudo-object. The ORB is called a pseudo-object because
+          its methods will be provided by a library in
+          communication with the run-time system, and its
+          pseudo-object reference cannot be passed as a parameter
+          to CORBA interface operations. Excluding that
+          restriction, however, a reference to an ORB looks like
+          any other object reference.
+<pre>package com.wiley.compbooks.brose.chapter4.simple.helloWorld;
+import java.io.*;
+import org.omg.CORBA.*;
+
+public class Client {
+    public static void main(String args[]) {
+        try {
+            // initialize the ORB
+            ORB orb = ORB.init (args, null);
+
+</pre>
+          After we have declared the package to which our client
+          class belongs, imported the appropriate classes, and
+          declared the class and the main method, we initialize the
+          ORB. The static method init() on the class
+          org.omg.CORBA.ORB returns an instance of an ORB.
+
+          <h5>4.5.3 Obtaining an Object Reference</h5>
+          References to objects can be obtained by various means,
+          as explained in Chapter 7, "Discovering Services." Here
+          we use a rather unsophisticated method. Object references
+          are opaque data structures; however, an object reference
+          can be converted into a string (as we show when
+          explaining the server). This is known as <i>
+          stringifying</i> an object reference. The resulting
+          string is called a <i>stringified object reference.</i>
+          Stringified object references are reconvertible into
+          "live" object references. This is done using the two
+          corresponding operations, object_to_string() and
+          string_to_object() defined on the CORBA::ORB interface.
+          Stringified interoperable object references can be
+          converted into working object references by any
+          CORBA-compliant ORB.
+<pre>        // get object reference from command-line     argument
+        org.omg.CORBA.Object obj =
+            orb.string_to_object( args[0] );
+
+</pre>
+          For this example client we assume that a stringified
+          object reference is provided as the first argument to the
+          client program. It is then provided as the argument to
+          the method string_to_object(), which is invoked on the
+          ORB pseudo-object. The method returns an object reference
+          of type CORBA::Object, the base type of all CORBA
+          objects, which is mapped to the interface
+          org.omg.CORBA.Object. You have to use the fully qualified
+          name to avoid confusion with java.lang.Object. To make
+          use of the object it needs to be narrowed to the
+          appropriate type. Narrowing is equivalent to down-casting
+          in some object-oriented programming languages. The narrow
+          operation is type safe because it returns a null object
+          reference if the object reference passed to it is not of
+          a correct type. If it successfully returns a non-null
+          reference then we can be sure that the reference is valid
+          and of the correct type. It can also raise the exception
+          CORBA::BAD_PARAM.
+
+          <p>The narrow method is defined in the class
+          GoodDayHelper.</p>
+<pre>        GoodDay goodDay = GoodDayHelper.narrow( obj );
+        if( goodDay == null ) {
+           System.err.println(
+                "stringified object reference is of wrong type");
+           System.exit( -1 );
+        }
+
+</pre>
+          Note that you should always use a narrow() operation when
+          you have to down-cast a CORBA object and never the Java
+          casting mechanism.
+
+          <h5>4.5.4 Invoking the Operation</h5>
+          Once the ORB is initialized and an object reference is
+          obtained, CORBA programming looks very much like standard
+          object-oriented programming. Invoking methods on objects
+          looks exactly the same for remote and local objects.
+<pre>            System.out.println( goodDay.hello() );
+
+</pre>
+          Our simple client invokes the method hello() on the
+          object goodDay, and the result is printed to standard
+          output.
+
+          <p>The last thing to consider is handling exceptions that
+          might occur. Because there are no user exceptions raised
+          by the hello() operation, we only have to catch and
+          process CORBA system exceptions, which can be thrown by
+          any CORBA-related method including the initialization of
+          the ORB, the narrow call, and the hello() method.</p>
+<pre>        }
+        catch(SystemException ex) {
+            System.err.println(ex);
+        }
+    }
+}
+
+</pre>
+          Note that the SystemException class is defined in the
+          package org.omg.CORBA.
+
+          <h5>4.5.5 Compiling and Executing the Client</h5>
+          To make the client program executable by a Java virtual
+          machine it needs to be compiled. This is done by calling
+          the Java compiler.
+<pre>prompt&gt; javac Client.java
+
+</pre>
+          We execute the client by calling the Java run-time system
+          with two arguments: the name of the client class and a
+          stringified object reference. You will see how to
+          generate this string when we consider the server
+          implementation.
+<pre>prompt&gt; java com.wiley.compbooks.brose.chapter4.helloWorld.Client
+IOR:000000000000002149444c3a53696d706c6548656c6c6f576f726c642f476f6f
+644461793a312e300000000000000001000000000000004c000100000000000e3133
+302e3130322e3137362e3900fc7d0000003000504d43000000010000001a53696d70
+6c6548656c6c6f576f726c643a3a476f6f6444617900000000000002febddb22
+
+</pre>
+          The client then prints the expected message.
+<pre>Hello World, from Brisbane
+
+</pre>
+
+          <h4>4.6 A Client as an Applet</h4>
+          When writing a client as an applet you have to follow the
+          same steps as for the application client. You also have
+          to make the following additions and alterations:
+
+          <ul>
+            <li>Anchor the applet in an HTML page to make it
+            addressable and loadable.</li>
+
+            <li>Provide a GUI to enable interaction through a Web
+            browser.</li>
+
+            <li>Extend the Java applet class and override some of
+            its methods.</li>
+
+            <li>Use a different ORB initialization.</li>
+          </ul>
+
+          <h5>4.6.1 Anchoring the Applet into HTML</h5>
+          To make an applet accessible over the Web it needs to be
+          anchored in an HTML page. When a browser downloads such a
+          document, the Java byte code representing the anchored
+          applet will also be received and executed by the Java
+          Virtual Machine in the browser. Here is an example HTML
+          file:
+<pre>&lt;html&gt;
+&lt;header&gt;
+&lt;title&gt;
+Hello World Example
+&lt;/title&gt;
+&lt;body&gt;
+&lt;center&gt;&lt;h1&gt;
+Hello World Example
+&lt;/h1&gt;&lt;/center&gt;
+&lt;center&gt;
+&lt;applet code=com/wiley/compbooks/brose/chapter4/simple/helloWorld/Applet.class
+width=400 height=80&gt;
+&lt;/applet&gt;
+&lt;/center&gt;
+&lt;/body&gt;&lt;/html&gt;
+
+</pre>
+          For our simple applet we have an HTML file
+          HelloWorldApplet.html that contains only a header and a
+          reference to our applet class
+          com.wiley.compbooks.brose.chapter4.helloWorld.Applet.
+          There may be a need for parameter tags in the applet tag.
+          These are very ORB and browser dependent, and you should
+          look up details in the relevant reference manuals.
+
+          <h5>4.6.2 Initializing the Applet</h5>
+          We define our applet as a class Applet that extends the
+          Java applet class java.applet.Applet. Within the class we
+          declare a number of private variables:
+
+          <ul>
+            <li>goodDay - to hold the object reference of the
+            remote object</li>
+
+            <li>helloWorldButton - a button to enable users to
+            invoke the method</li>
+
+            <li>textField - a text field to display the result of
+            the method.</li>
+          </ul>
+          Then we override the method init() inherited from the
+          applet base class. First, we initialize the GUI
+          components, that is, we create a Button and a TextField
+          object and set some properties of these objects. Then we
+          define the layout of the user interface using the Java
+          layout manager GridLayout and add the two GUI components
+          to the layout. We also register the applet as an event
+          listener at our <tt>Hello World</tt> button according to
+          the Java event model and set the action command to
+          "invoke."
+<pre>package com.wiley.compbooks.brose.chapter4.simple.helloWorld;
+
+import java.io.*;
+import java.net.*;
+import java.awt.*;
+import java.awt.event.*;
+import org.omg.CORBA.*;
+
+public class Applet
+    extends java.applet.Applet
+    implements ActionListener {
+
+    private ORB orb;
+    private GoodDay goodDay;
+    private Button helloWorldButton;
+    private TextField textField;
+
+    public void init() {
+        helloWorldButton = new Button("Invoke remote method");
+        helloWorldButton.setFont( new Font( "Helvetica",
+            Font.BOLD, 20));
+        helloWorldButton.setActionCommand( "invoke" );
+        helloWorldButton.addActionListener( (ActionListener) this );
+        textField = new TextField();
+        textField.setEditable( false );
+        textField.setFont( new Font( "Helvetica", Font.BOLD, 14));
+        setLayout( new GridLayout( 2,1 ));
+        add( helloWorldButton );
+        add( textField );
+
+</pre>
+
+          <h5>4.6.3&nbsp; Locating Objects</h5>
+          In the next step we locate an object implementation. In
+          the application client we did this using a stringified
+          object reference. Because stringified IORs are rather
+          inconvenient to use in applet parameters, we use the
+          following convention to access initial IORs. We expect
+          that a file containing the target IOR is supplied in the
+          same directory where the HTML page containing the applet
+          was found on the Web server. Details on how to locate an
+          object more flexibly are provided in Chapter 7.
+
+          <p>To initialize the ORB we again call the method init(),
+          this time with the applet object itself as the first
+          argument (using the Java keyword this to do so). This
+          initialization changes the behavior of the stub. As part
+          of its bootstrap code the stub will establish a
+          connection to an instance of the IIOP gateway, which it
+          expects to be running on the machine from which the
+          applet has been downloaded. Details of the problems
+          related to IIOP gateways and their solutions are
+          discussed in Chapter 12, "Security." If your ORB does not
+          provide an IIOP gateway, you must make sure that the
+          server that hosts the remote object is running on the
+          machine from which the applet was downloaded; otherwise,
+          it won&amp;rsquo;t be reachable from within the
+          applet.</p>
+
+          <p>To obtain a reference to the remote object we use the
+          following method readIOR(). This method constructs a URL
+          for the location where the IOR file is expected. It then
+          opens a connection to this resource and reads a line of
+          text that is assumed to contain the stringified object
+          reference. Because applets are allowed to connect to
+          their Web server this operation will succeed if the IOR
+          has been properly provided.</p>
+<pre>    private String  readIOR() {
+        try {
+            URL iorURL = new URL( getCodeBase().toString()+"ior" );
+            BufferedReader in = new BufferedReader(
+                new InputStreamReader( iorURL.openStream() ) );
+            String line = in.readLine();
+            in.close();
+            return line;
+        }
+        catch(  Exception ex  ) {
+            System.err.println( ex );
+        }
+        return  null;
+    }
+
+</pre>
+          Applet initialization is finished with the catching and
+          processing of exceptions.
+<pre>        try  {
+            // initialize  the ORB (using  this applet)
+            orb  = ORB.init( this, null );
+            org.omg.CORBA.Object obj = orb.string_to_object(
+                readIOR());
+            goodDay = GoodDayHelper.narrow( obj );
+        }
+        catch(  SystemException ex )  {
+            System.err.println( "ORB is not initialized" );
+            System.err.println( ex );
+        }
+    }
+
+</pre>
+
+          <h5>4.6.4 Handling Applet Events</h5>
+          To handle events from the graphical user interface, in
+          our case from the Hello World button, we implement the
+          method actionPerformed() of the interface
+          java.applet.awt.event.ActionListener. This method handles
+          GUI events of type ActionEvent. In this case we have to
+          deal with only one event, which is fired when the Hello
+          World button is pressed. This event is associated with
+          the command "invoke."
+<pre>    public  void actionPerformed( ActionEvent e ) {
+        if( e.getActionCommand().equals("invoke") ) {
+            // invoke   the    operation
+            try {
+                textField.setText( goodDay.hello() );
+            }
+            // catch CORBA   system exceptions
+            catch( SystemException ex) {
+                System.err.println(ex);
+            }
+        }
+    }
+
+</pre>
+          We check if the action command of the event was "invoke."
+          If not, we do nothing. Otherwise we invoke the method
+          hello() on the object goodDay. We display the result of
+          the invocation in the text field. Again we watch for
+          possible CORBA system exceptions and print them if they
+          occur.
+
+          <h5>4.6.5 Compiling and Executing the Applet</h5>
+          To make the applet executable it needs to be compiled.
+          This is done by calling the Java compiler.
+<pre>prompt&gt; javac Applet.java
+
+</pre>
+          To execute the applet we have to point a Java-enabled Web
+          browser to the URL of the HTML document that anchors our
+          applet. Figure 4.3 shows the initial state of the
+          applet&amp;rsquo;s execution in the browser.<br>
+           <img src="Wiley%20::%20Java%20Programming%20with%20CORBA_files/figure4-3.jpg" alt="figure4.3">
+
+          <p><b>Figure 4.3 Hello World applet - initial
+          state.</b></p>
+
+          <p>Once the button has been clicked, the result of the
+          operation invocation is displayed in the text field as
+          shown in Figure 4.4.<br>
+           <img src="Wiley%20::%20Java%20Programming%20with%20CORBA_files/figure4-4.jpg" alt="figure4.4"></p>
+
+          <p><b>Figure 4.4 Hello World applet - invoked
+          method.</b></p>
+
+          <h4>4.7 An Object Implementation</h4>
+          Now we turn to the implementation of the object whose
+          interface has been specified in IDL. This implementation
+          is also known as the <i>servant class.</i> The IDL/Java
+          mapping specification defines a <i>servant base class</i>
+          that is named after the IDL interface: <i>
+          InterfaceName</i>POA. This base class is a skeleton
+          generated by the IDL compiler. There are alternatives to
+          this implementation style. The two main ways of
+          associating object implementation classes with a skeleton
+          class are by <i>inheritance</i> or <i>delegation.</i>
+
+          <p>The inheritance approach involves a Java
+          implementation class extending the servant base class.
+          The servant base class is an abstract implementation of
+          the Java interface that corresponds to the IDL interface.
+          The object implementation is an extension of the base
+          class and implements the methods. The delegation approach
+          is also known as the Tie method. This is done by
+          providing the skeleton with a reference to an
+          implementation object. This is explained in detail in
+          Chapter 9.</p>
+
+          <p>In our example we have an implementation class
+          GoodDayImpl that extends the servant base class
+          GoodDayPOA. As in the implementation of the GoodDayImpl
+          class shown in Chapter 3, we declare a private variable,
+          location, that will hold a string identifying the
+          location of the service. Here we mean the geographical
+          location, as shown in the previous client examples.</p>
+
+          <p>We also have to implement the constructor of the
+          class. The constructor has one parameter which it assigns
+          to the private variable location.</p>
+<pre>package com.wiley.compbooks.brose.chapter4.simple.helloWorld;
+
+import org.omg.CORBA.*;
+
+public class GoodDayImpl extends GoodDayPOA {
+
+    private String location;
+
+    // constructor
+    GoodDayImpl( String location  ) {
+        // initialize location
+        this.location = location;
+    }
+
+    //  method
+    public String hello()  {
+        return "Hello  World, from "  + location;
+    }
+}
+
+</pre>
+          We implement the method hello(), which returns a string
+          composed of the message "Hello World, from" and the value
+          of the variable location.<br>
+           Again we have to compile the Java source into byte code:
+
+<pre>prompt&gt; javac GoodDayImpl.java
+</pre>
+
+          <h4>4.8 A Server</h4>
+          Now we have to implement a server class. This class
+          initializes the environment, creates the implementation
+          object, makes it available to clients, and listens for
+          events. The server class for our example is called
+          Server. We only implement the main() method in this
+          class. We check for the right number of arguments, one of
+          which indicates the location of the server. A server is
+          responsible for initializing the ORB, creating the
+          object, and making the object accessible.
+
+          <p>We initialize the ORB in the same way we did on the
+          client side by calling ORB.init(), which returns a
+          reference to the ORB pseudo-object. We then create an
+          instance of the servant class goodDayImpl by calling
+          Java&amp;rsquo;s new operator and supply one argument to
+          the constructor that we copy from the command-line
+          argument.</p>
+<pre>package com.wiley.compbooks.brose.chapter4.simple.helloWorld;
+
+import java.io.*;
+import org.omg.CORBA.*;
+import org.omg.PortableServer.*;
+
+public class Server  {
+    public static void main(String[] args) {
+        if( args.length != 1 ) {
+            System.out.println(
+               "Usage: java com.wiley.compbooks.brose.chapter4.
+                simple.helloWorld &lt;location&gt;");
+            System.exit( 1 );
+        }
+        try  {
+            //init ORB
+            ORB orb  = ORB.init( args, null );
+            // create a GoodDay  object
+           GoodDayImpl  goodDayImpl = new GoodDayImpl( args[0] );
+
+</pre>
+          At this stage we have only a Java object. To make it
+          incarnate a CORBA object we must enable the object to act
+          as a servant and to receive CORBA operation invocations.
+          This is done via an object adapter. To create a CORBA
+          object reference that we can later export, we first need
+          to obtain a reference to an instance of a POA and
+          initialize it. We do not need any advanced object adapter
+          features here, so it is sufficient to use the ORB's root
+          POA, which can be obtained by calling
+          resolve_initial_references("RootPOA") on the ORB. After
+          narrowing the result to type POA we need to activate the
+          object adapter because, as explained in Chapter 2, "CORBA
+          Overview," object adapters are initially in a holding
+          state and do not process incoming requests.
+<pre>            //init POA
+            POA poa  = POAHelper.narrow(
+            orb.resolve_initial_references("RootPOA"));
+            poa.the_POAManager().activate();
+
+</pre>
+          Now that we have set up the POA we can create an object
+          reference from our goodDayImpl servant. Note that the
+          servant incarnates a transient CORBA object. The object
+          reference of a transient object is valid only for the
+          lifetime of a particular instance of its POA. We explain
+          and compare transient and persistent object references in
+          detail in Chapter 5. Creating an object reference from a
+          servant object is done by calling servant_to_reference()
+          on the POA, supplying the servant object as an argument.
+<pre>            // create   the  object reference
+            org.omg.CORBA.Object obj =
+                poa.servant_to_reference( goodDayImpl );
+            // print stringified object reference
+            System.out.println( orb.object_to_string( obj ) );
+            // wait  for  requests
+            orb.run();
+        }
+        catch(InvalidName e ) {
+            System.err.println( e );
+        }
+        // POA  exceptions WrongPolicy  and ServantNotActive
+        catch(UserException  e ) {
+            System.err.println(e);
+        }
+        catch(SystemException  e) {
+            System.err.println(e);
+        }
+    }
+}
+
+</pre>
+          After creating the object reference, we print its
+          stringified reference to the standard output. Note that
+          we have implicitly activated the new CORBA object with
+          the call to , so it is ready to receive requests now.
+          Finally, we call run() on the ORB that blocks the
+          server's main thread waiting for incoming requests.
+
+          <p>Again we catch possible exceptions. Two more
+          exceptions can occur here. The first of these is
+          InvalidName, which can be thrown by
+          resolve_initial_references() if an invalid string
+          argument is supplied. The other kind of possible
+          exceptions are two UserExceptions defined for the POA's
+          servant_to_reference() method. We handle both of them by
+          defining a catch clause for UserExceptions. The exact
+          types of these exceptions are WrongPolicy and
+          ServantNotActive, and they are both declared in the
+          org.omg.PortableServer package.</p>
+
+          <h5>4.8.1 Compiling and Starting the Server</h5>
+          We have to compile the Java source into byte code:
+<pre>prompt&gt; javac  Server.java
+</pre>
+          We now start the server:
+<pre>prompt&gt; java
+com.wiley.compbooks.brose.chapter4.simple.helloWorld.Server Brisbane
+
+</pre>
+          This prints out a stringified IOR which looks like this:
+<pre>IOR:000000000000002149444c3a53696d706c6548656c6c6f576f726c642f476f6f64
+4461793a312e300000000000000001000000000000004c000100000000000e3133302e
+3130322e3137362e3900fc7d0000003000504d43000000010000001a53696d706c6548
+656c6c6f576f726c643a3a476f6f6444617900000000000002febddb22
+
+</pre>
+          It&amp;rsquo;s probably a good idea to redirect standard
+          output to a file. In our example we call this file
+          shw.ior:
+<pre>prompt&gt; java com.wiley.compbooks.brose.chapter4.simple.helloWorld.Server
+   Brisbane &gt; shw.ior
+</pre>
+          Now we can really run our clients as we have shown
+          earlier. A client can be conveniently started using the
+          IOR file:
+<pre>prompt&gt; java
+com.wiley.compbooks.brose.chapter4.simple.helloWorld.Client
+    `cat shw.ior`
+
+</pre>
+
+          <h4>4.9 Extending the Hello World Example</h4>
+          In this section we will modify the simple Hello World
+          example to introduce another feature. In this example the
+          server will return not only a message but also the
+          current time at the server&amp;rsquo;s location. We will
+          look at some new aspects of application development and
+          revisit some of the issues discussed in the earlier
+          version of this example application. Specifically we deal
+          with the following:
+
+          <ul>
+            <li>Further aspects of the specification of
+            interfaces</li>
+
+            <li>Parameter mapping and the semantics of parameter
+            passing</li>
+
+            <li>The development of a client</li>
+
+            <li>Applet implementations</li>
+
+            <li>The implementation of an object</li>
+          </ul>
+
+          <h4>4.9.1 Interface Specification</h4>
+          We again specify an interface GoodDay with an operation
+          hello(). The module is again called helloWorld. But to
+          avoid name clashes with the previous example, all code
+          will be developed in the package
+          com.wiley.compbooks.brose.chapter4.extended.
+
+          <p>The signature of the operation is different. Its
+          result is still a string, but this time the operation has
+          parameters, and it returns the description of the
+          server&amp;rsquo;s location. The parameters are tagged as
+          out, meaning that their values will be supplied by the
+          invoked object. They are both of type short, and their
+          intended meaning is that they hold the current time at
+          the server&amp;rsquo;s location: hour holds the hour and
+          minute the minute.</p>
+<pre>module com {
+module wiley {
+&amp;hellip;
+module extended {
+module helloWorld {
+    interface GoodDay {
+        string hello(
+            out short hour,
+            out short minute );
+        };
+    };&amp;hellip;};
+
+</pre>
+
+          <h5>4.9.2 Parameter Mapping</h5>
+          An out parameter in an IDL operation has pass-by-result
+          semantics. This means that a value for this parameter
+          will be supplied by the invoked object. The value will be
+          available to the client after the invocation is
+          completed.
+
+          <p>The parameters in Java operations have pass-by-value
+          semantics, meaning that a value is passed from the caller
+          to the invoked object. There is a mismatch in the
+          semantics of parameter passing between IDL and Java for
+          IDL&amp;rsquo;s out and inout parameters. The solution is
+          provided by <i>Holder objects.</i> Instead of passing an
+          argument itself, an object is used as an argument to the
+          Java method. The Holder object contains a variable value
+          of the type of the IDL parameter. This way the Java
+          object&amp;rsquo;s reference passed need not change, but
+          contents may change as a result of the invocation (see
+          Figure 4.5).</p>
+
+          <p><b>Figure 4.5 Holder objects</b><br>
+           <img src="Wiley%20::%20Java%20Programming%20with%20CORBA_files/figure4-5.jpg" alt="figure4.5"></p>
+
+          <p>Holder classes for predefined IDL types are provided
+          in the package org.omg.CORBA, as listed in Chapter 5. The
+          IDL compiler generates Holder classes <i>
+          TypeName</i>Holder for user-defined types. In our
+          examples we use the predefined Holder class
+          org.omg.CORBA.ShortHolder.</p>
+
+          <h5>4.9.3 A Client</h5>
+          The main difference to the previous example is that we
+          create two objects, minute and hour, of the class
+          org.omg.CORBA.ShortHolder for the out parameters of the
+          hello() operation.
+<pre>package com.wiley.compbooks.brose.chapter4.extended.helloWorld;
+
+import java.io.*;
+import org.omg.CORBA.*;
+
+public class Client {
+    public static void main(String args[]) {
+        // create Holder objects for out parameters
+        ShortHolder minute = new ShortHolder();
+        ShortHolder hour = new ShortHolder();
+        try {
+            // initialize the ORB
+            ORB orb = ORB.init(args, null);
+            // get object reference from command-line argument
+            org.omg.CORBA.Object obj =
+                orb.string_to_object( args[0] );
+            // and narrow it to GoodDay
+            GoodDay goodDay = GoodDayHelper.narrow( obj );
+            if( goodDay == null ) {
+                System.err.println(
+                   "stringified object reference is of wrong type");
+                System.exit( -1 );
+            }
+
+</pre>
+          <b>4.9.3.1 Invoking the Operation</b>
+
+          <p>After we initialize the ORB and obtain a narrowed
+          object reference, we invoke the operation. We assign the
+          result of the operation to a string location. After the
+          successful return of the invocation, the variables named
+          value in the two holder objects will carry values set by
+          the invoked object.</p>
+<pre>            // invoke the operation
+            String location = goodDay.hello( hour, minute );
+            // print results to stdout
+            System.out.println("Hello World!");
+            if( minute.value &lt; 10 )
+                System.out.println("The local time in " + location +
+                    " is " + hour.value + ":0" + minute.value + "." );
+            else
+                System.out.println("The local time in " + location +
+                    " is " + hour.value + ":" + minute.value + "." );
+        }
+        // catch exceptions
+        catch(SystemException ex) {
+            System.err.println(ex);
+        }
+    }
+}
+
+</pre>
+          When we print out the results we obtain the time at the
+          remote location from the variable value of the holder
+          objects hour.value and minute.value. We compile the
+          client as before and execute it. The stringified object
+          reference must refer to an object that provides the
+          extended Hello World interface. The following is a
+          typical result:
+<pre>prompt&gt; java
+com.wiley.compbooks.brose.chapter4.extended.helloWorld.Client
+IOR:000000000000001b49444c3a48656c6c6f576f726c642f476f6f64446
+1793a312e30000000000001000000000000004c000100000000000e313330
+2e3130322e313762e390083040000003000504d4300000000000000144865
+6c6c6f576f726c643a3a476f6f64446179000000000c476f6f64446179496
+d706c00 Hello World!
+The local time in Brisbane is 16:42.
+
+</pre>
+
+          <h5>4.9.4 An Applet</h5>
+          The applet implementation does not add much new. We have
+          the same structure as in the simple example, and we make
+          additions and modifications as in the aforementioned
+          client. We add two private variable declarations to the
+          class and create the corresponding objects within the
+          method init().
+<pre>&gt;package com.wiley.compbooks.brose.chapter4.extended.helloWorld;
+
+import java.io.*;
+import java.net.*;
+import java.awt.*;
+import java.awt.event.*;
+import org.omg.CORBA.*;
+
+public class Applet
+    extends java.applet.Applet
+    implements ActionListener {
+
+    private ShortHolder minute;
+    private ShortHolder hour;
+    private GoodDay goodDay;
+    private String text;
+    private String locality;
+    private Button helloWorldButton;
+    private TextField textField;
+
+    public void init() {
+        minute = new ShortHolder();
+        hour = new ShortHolder();
+        helloWorldButton = new Button("Invoke remote method");
+        helloWorldButton.setFont(
+            new Font( "Helvetica", Font.BOLD, 20 ));
+        helloWorldButton.setActionCommand("invoke");
+        helloWorldButton.addActionListener( (ActionListener)this );
+        textField = new TextField();
+        textField.setEditable(false);
+        textField.setFont(new Font("Helvetica", Font.BOLD, 14));
+        setLayout( new GridLayout(2,1);
+        add( helloWorldButton );
+    }
+
+</pre>
+          <b>4.9.4.1&nbsp; Invoke the Operation</b>
+
+          <p>In the method actionPerformed(), we invoke the
+          operation and display the result in the text field.</p>
+<pre>    public void actionPerformed( ActionEvent e ) {
+        if( e.getActionCommand().equals("invoke") ) {
+            // invoke the operation
+            try {
+                locality = new String(goodDay.hello(hour, minute ));
+            }
+            // catch exceptions
+            catch(SystemException ex) {
+                System.err.println(ex);
+            }
+            if( minute.value &lt; 10 )
+                text = new String("The local time in " +
+                    locality + " is " +
+                    hour.value + ":0" + minute.value + "." );
+            else
+                text = new String("The local time in " +
+                    locality + " is " +
+                    hour.value + ":" + minute.value + "." );
+            textField.setText( text );
+        }
+    }
+}
+
+</pre>
+          When the applet is compiled and loaded into a browser via
+          an HTML page, we see a user interface, as shown in Figure
+          4.3. When the button is clicked and the operation invoked
+          we see the following text in the display.
+<pre>Hello World! The local time in Brisbane is 16:44.
+
+</pre>
+
+          <h5>4.9.5 Object Implementation</h5>
+          The variable declarations and the constructor are as in
+          the class GoodDayImpl of the first example, but the
+          signature of the method hello() has changed. There are
+          now two short holder objects as parameters.
+
+          <p>We create an object date that holds the time
+          information of the system. The corresponding class is
+          defined in java.util.Date. We retrieve the hour and the
+          minute by invoking the methods getHours() and
+          getMinutes() on the object. We assign the values to the
+          corresponding value variables of the container objects.
+          We return the locality as in the earlier example.</p>
+<pre>package com.wiley.compbooks.brose.chapter4.extended.helloWorld;
+
+import java.util.Date;
+import org.omg.CORBA.*;
+
+public class GoodDayImpl extends GoodDayPOA {
+    private String location;
+
+    // constructor
+    GoodDayImpl( String location ) {
+        this.location = location;
+    }
+
+    // method
+    public String hello( ShortHolder hour, ShortHolder minute ) {
+        // get local time of the server
+        Date date = new Date();
+        hour.value = (short) date.getHours();
+        minute.value = (short) date.getMinutes();
+        return location;
+    }
+}
+
+</pre>
+          The server implementation in the class Server again uses
+          the POA. Once the ORB is initialized, we obtain a
+          reference to the root POA instance by calling
+          resolve_initial_references("RootPOA") on the ORB
+          pseudo-object, activate the POA, and create an instance
+          of the servant as before. To make it a CORBA object, we
+          call the method servant_to_reference() on the POA. This
+          again creates an object reference and implicitly
+          activates the CORBA object; that is, it associates it
+          with the servant goodDayImpl. The new object is now
+          accessible by CORBA clients. Again we print out the
+          stringified object reference. Finally we call run() on
+          the ORB which puts the server in an infinite loop waiting
+          for incoming calls.
+<pre>package com.wiley.compbooks.brose.chapter4.extended.helloWorld;
+
+import org.omg.CORBA.*;
+import org.omg.CORBA.ORBPackage.*;
+import org.omg.PortableServer.*;
+
+public class Server {
+
+    public static void main(String[] args) {
+        try {
+            //init orb
+            ORB orb = ORB.init( args, null );
+            //init basic object adapter
+            POA poa = POAHelper.narrow(
+                orb.resolve_initial_references("RootPOA"));
+            poa.the_POAManager().activate();
+            // create a GoodDay object
+            GoodDayImpl goodDayImpl = new GoodDayImpl( args[0] );
+            // export the object reference
+            org.omg.CORBA.Object obj =
+                poa.servant_to_reference( goodDayImpl );
+            System.out.println( orb.object_to_string( obj ) );
+            // wait for requests
+            orb.run();
+        }
+        catch( InvalidName e ) {
+            System.err.println( e );
+        }
+        // POA exceptions WrongPolicy and ServantNotActive
+        catch( UserException e ) {
+            System.err.println( e );
+        }
+        catch(SystemException e) {
+            System.err.println(e);
+        }
+    }
+}
+</pre>
+          In this chapter, you have seen all the basics of
+          programming with Java ORBs and are now ready to start
+          with experiments of your own. We have explained the basic
+          steps that you need to follow, and how the various
+          development stages fit together. You will see that we go
+          through these steps even in the more advanced examples
+          later in this book.
+          <!-- These are sample navigational link: -->
+
+          <table summary="links" cellspacing="3" border="0">
+            <tbody><tr>
+              <td class="small" valign="TOP" bgcolor="#FFFFCC"><b>[
+              <a href="http://www.wiley.com/legacy/compbooks/brose/index.html">Home</a> ]</b></td>
+
+              <td class="small" valign="TOP" bgcolor="#FFFFCC"><b>[
+              <a href="http://www.wiley.com/legacy/compbooks/brose/toc.html">Table of Contents</a> ]</b></td>
+
+              <td class="small" valign="TOP" bgcolor="#FFFFCC"><b>[
+              <a href="http://www.wiley.com/legacy/compbooks/brose/code.html">Code</a> ]</b></td>
+
+              <td class="small" valign="TOP" bgcolor="#FFFFCC"><b>[
+              <a href="http://www.wiley.com/legacy/compbooks/brose/updates.html">Updates</a> ]</b></td>
+
+              <td class="small" valign="TOP" bgcolor="#FFFFCC"><b>[
+              <a href="http://www.wiley.com/legacy/compbooks/brose/orbs.html">Java ORBs</a> ]</b></td>
+
+              <td class="small" valign="TOP" bgcolor="#FFFFCC"><b>[
+              <a href="http://www.wiley.com/legacy/compbooks/brose/authors.html">The Authors</a> ]</b></td>
+            </tr>
+          </tbody></table>
+        </td>
+        <!-- column 2 (spacer) -->
+
+        <td width="20"><img src="Wiley%20::%20Java%20Programming%20with%20CORBA_files/blank_cu.gif" alt="spacer" width="10" height="13"></td>
+
+        <td><!-- column 3  (cover)  --></td>
+
+        <td width="112" valign="TOP" align="CENTER" bgcolor="#FFFFCC">
+          <!-- To insert cover, put in last six digits of ISBN number, including the hyphen, followed by ".jpg" in place of XXXXXX in the following line:  -->
+          <a href="http://www.wiley.com/compbooks/catalog/37681-7.htm"><img src="Wiley%20::%20Java%20Programming%20with%20CORBA_files/cover.jpg" alt="Cover" width="112" height="135" border="0"></a>
+
+          <p class="small"><a href="http://www.wiley.com/legacy/compbooks/brose/index.html"><img src="Wiley%20::%20Java%20Programming%20with%20CORBA_files/arrow_r.gif" alt="arrow" width="12" height="9" border="0"></a><a href="http://www.wiley.com/legacy/compbooks/brose/index.html">Back</a>
+          <!-- If available, put the specs for the book here, including ISBN number, page count, and month/year of pub: --></p>
+
+          <p class="small">ISBN 0-471-376817</p>
+
+          <p class="small"><a href="http://www.wiley.com/compbooks/">WCP Home
+          Page</a></p>
+        </td>
+      </tr>
+    </tbody></table>
+    <!------------------------------------>
+<!-- Begin footer element           -->
+<!------------------------------------>
+</td></tr></tbody></table>
+ 
+    </div>    
+    <!-- BEGIN FOOTER -->
+    <div id="footer">
+        Resources for 
+        <a href="http://www.wiley.com/go/resources/authors">Authors</a>&nbsp;|&nbsp;
+        <a href="http://www.wiley.com/go/resources/librarians">Librarians</a>&nbsp;|&nbsp;
+        <a href="http://www.wiley.com/go/resources/instructors">Instructors</a>&nbsp;|&nbsp;
+        <a href="http://www.wiley.com/go/resources/booksellers">Booksellers</a>&nbsp;|&nbsp;
+        <a href="http://www.wiley.com/go/resources/press">Press</a>&nbsp;|&nbsp;
+        <a href="http://www.wiley.com/go/resources/investors">Investors</a>
+            
+        <p>
+            <a href="http://www.wiley.com/go/copyright">Copyright © 2000-2006</a>
+            by
+            <a href="http://www.wiley.com/">John Wiley &amp; Sons, Inc.</a> or related companies.
+            All rights reserved. Please read our <a href="http://www.wiley.com/go/privacy_policy">Privacy Policy</a>
+        </p>
+            
+        <div>
+            <a href="http://www.wiley.com/go/sitemap">Site Map</a>
+        </div>
+            
+    </div>
+    <div id="page-bottom"></div>
+    <!-- END FOOTER -->
+</div>
+
+<!------------------------------------>
+<!-- End footer element             -->
+<!------------------------------------>
+
+  
+
+
+</body></html>

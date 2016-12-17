@@ -1,0 +1,393 @@
+/* ------------ GENERAL --------------*/
+.clear{ clear: both; }
+.no-show{ display: none; }
+.display-block{ display: block; }
+img{ border: none; text-decoration: none; }
+hr{ 
+    margin: 8px 0 12px 0;
+    padding: 0;
+    background-color: #ccc; 
+    color: #ccc; 
+    height: 1px; 
+    border: 0; 
+}
+
+hr.thick{ height: 3px; }
+
+input.text {
+    font-size: 12px;
+    width:220px;
+    height:13px;
+}    
+
+a:link {color:#000;text-decoration:underline;}
+a:visited {color:#666;text-decoration:underline;}
+a:hover {color:#666;text-decoration:none;}
+
+a.contrast:link, a.contrast:visited{ color: #245849; text-decoration: none; font-weight: bold;}
+a.contrast:hover{ color: #245849; text-decoration: underline; font-weight: bold;}
+
+b.contrast{ color: #245849; }
+
+.cart-action {
+    font-weight:bold;
+    color:#D36227; 
+}    
+
+/* ------------ LAYOUT --------------*/
+/*
+    body, page, top-nav, breadcrumb, promo-area, 
+    content{sidebar,main-content}, footer 
+*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small; 
+    margin:0;
+    background: #f0f4f7;
+}
+
+form {
+    margin:0;
+    padding:0;
+}
+
+#page {
+    width:981px;
+    margin:0 auto 0 auto;
+    padding:0;
+    background: #fff url('http://media.wiley.com/stylesheets/wiley/page-bg.gif') repeat-y;
+}
+
+#page-bottom {
+    border-bottom:3px solid #CCC;  
+    margin:0 5px 0 5px;
+}
+
+div.divider {
+    border-top:3px solid #CCCCCC;
+    margin:5px 0 5px 0;
+}
+
+div.feature-divider {
+    margin-top:10px;    
+}    
+
+
+/* ------------ LAYOUT: TOP-NAV --------------*/
+#top-nav {
+    border-bottom:5px solid #969F82;
+    background: url('http://media.wiley.com/stylesheets/wiley/top-nav-bg.gif') no-repeat top left;
+    font-size:11px;
+    color:#fff;
+    position:relative;
+    margin:0 6px 0 5px;
+    height:90px;
+    overflow:hidden;
+    position:relative;
+}
+
+#top-nav div {
+    position:absolute;
+    top:0px;
+    right:15px;
+    width:560px;
+    height:25px;
+    text-align: right;
+}
+
+/* TOP-NAV HOVER */
+#top-nav div ul{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#top-nav div ul li{
+    display:inline;
+    margin:0;
+    padding-left:8px;
+    float:left
+}
+
+#top-nav div ul li a{ 
+    display:block;
+    height:25px;
+    margin:0;
+    padding:0;
+}
+
+#top-nav div ul li a b{display:none;}
+
+#top-nav div ul li#home-btn a{
+    width: 72px;
+    background: url('http://media.wiley.com/stylesheets/wiley/home.gif') no-repeat;
+}
+#top-nav div ul li#home-btn a:hover, #top-nav div ul li#home-btn a.active{
+    background-position: 0 -25px;
+}
+
+#top-nav div ul li#subjects-btn a{
+    width: 90px;
+    background: url('http://media.wiley.com/stylesheets/wiley/subjects.gif') no-repeat;
+}
+#top-nav div ul li#subjects-btn a:hover, #top-nav div ul li#subjects-btn a.active{
+    background-position: 0 -25px;
+}
+
+#top-nav div ul li#about-btn a{
+    width: 119px;
+    background: url('http://media.wiley.com/stylesheets/wiley/about.gif') no-repeat;
+}
+#top-nav div ul li#about-btn a:hover, #top-nav div ul li#about-btn a.active{
+    background-position: 0 -25px;
+}
+
+#top-nav div p{
+    margin:0;
+    padding:0 0 3px 0;
+    position:absolute;
+    top:7px;
+    right:306px;
+    font-size:10px;
+    color:#FFFFFF;
+}
+
+#top-nav div p img{
+    margin:0px 3px -3px 0;
+}
+
+#top-nav form {
+    position:absolute;
+    top:55px;
+    right:15px;
+    width:560px;
+    height:25px; 
+    color:#c4d6bc;
+    text-align:right;
+    font-size:11px;
+}
+
+#top-nav input.text {
+    font-size:11px;
+    width:225px;
+    height:1.8em;
+    color:#000;
+    padding-left:3px;
+}
+
+#top-nav .search {
+    margin-bottom:-5px;
+}
+
+#top-nav a:link {color:#fff;text-decoration:none;}
+#top-nav a:visited {color:#fff;text-decoration:none;}
+#top-nav a:hover {color:#fff;text-decoration:underline;}
+
+#topnav-sm {
+    border-bottom:5px solid #969F82;
+    background: #5a9238;
+    font-size:xx-small;
+    color:#FFFFFF;
+    position:relative;
+    margin:0 6px 0 5px;
+    height:55px;
+    overflow:hidden;
+    position:relative;
+}
+
+#topnav-sm div {
+    position:absolute;
+    bottom: 10px;
+    right:15px;
+    font-size: 13px;
+    font-weight: bold;
+    
+}
+
+#topnav-sm a:link {color:#fff;text-decoration:underline;}
+#topnav-sm a:visited {color:#fff;text-decoration:underline;}
+#topnav-sm a:hover {color:#fff;text-decoration:none;}
+
+
+/* ------------ LAYOUT: CONTENT --------------*/
+#content{
+    margin: 15px 21px 0 20px;
+    padding: 0; 
+}
+
+#content table{
+    font-size:100%; 
+}
+
+#sidebar{
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 230px;
+}
+
+#main-content{
+    float: right;
+    margin: 0;
+    padding: 0;
+    width: 700px;
+}
+
+div.feature{ margin: 15px 0 0 0; }
+
+
+
+/* LAYOUT: MAIN-CONTENT */
+
+h2.listing {
+    font-size:15px;
+    font-weight:bold;
+    margin:0 0 0 15px;
+    padding:0;
+}
+
+
+a.paginator:link, a.product:link {color:#245849;text-decoration:underline;font-weight:bold;margin:0 2px 0 2px;display:inline;}
+a.paginator:visited, a.product:visited {color:#245849;text-decoration:underline;font-weight:bold;margin:0 2px 0 2px;display:inline;}
+a.paginator:hover, a.product:hover {color:#245849;text-decoration:none;font-weight:bold;margin:0 2px 0 2px;display:inline;}
+
+form.refiner {
+    margin:2px 0 8px 0;
+    border-top:1px solid #CCCCCC;
+    border-bottom:1px solid #CCCCCC;
+    padding:13px 5px 13px 6px;
+}
+
+form.refiner select {
+    font-size:12px;
+}
+
+div.paginator {
+    margin:8px 0 10px 0;
+    padding:8px 13px 0 0;
+    border-top:3px solid #CCCCCC;
+    text-align:right;
+}
+
+.paginator-selected {
+    background-color:#E6E6E6;
+    padding:1px 3px 1px 3px;
+}
+
+div.product-box{
+    float: left;
+    width: 230px;
+    margin: 0px;
+    padding: 6px 0 6px 0;
+}
+
+/* for generic main content */
+div.maincontent-header{
+    margin: 10px 0 10px -15px;
+    padding: 0 0 3px 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+div.maincontent-header h2, h2.main-content{
+    font-size: 20px;
+    font-weight: normal;
+    color: #000;
+    margin: 0;
+    padding: 0; 
+}
+
+h2.main-content{
+    font-size: 17px;
+    margin: 10px 0 10px 0;
+    padding: 0;
+}    
+
+div.maincontent-text{
+    margin: 0 0 0 15px;
+    padding: 0;
+}
+
+div.maincontent-text#full-width{
+    margin-left: 18px;
+}
+
+div.lined-header{
+    margin: 10px 0 10px 0;
+    padding: 0 0 3px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+div.lined-header h2{
+    font-size: 20px;
+    font-weight: normal;
+    color: #000;
+    margin: 0;
+    padding: 0; 
+}
+
+div.greyborder-box a:link, div.maincontent-text a:link{ color: #245849;}
+div.greyborder-box a:visited, div.maincontent-text a:visited{ color: #666;}
+
+
+/* ------------ LAYOUT: FOOTER --------------*/
+#footer {
+    margin:25px 21px 0 20px;
+    padding:10px 0 25px 15px;
+    border-top:5px solid #ccc;
+    font-size:x-small;
+    color:#666;
+    position:relative;
+}
+
+#footer p {
+    margin:3px 0 0 0;
+}
+
+#footer a:link {color:#666666;text-decoration:underline;}
+#footer a:visited {color:#666666;text-decoration:underline;}
+#footer a:hover {color:#333333;text-decoration:none;}
+
+#footer span{ 
+    position: absolute; 
+    top: 8px;
+    right: 105px;
+}
+
+#footer span img { margin-bottom: -3px; }
+
+#footer div {
+    border:1px solid #87AC06;
+    width:50px;
+    position:absolute;
+    top:10px;
+    right:15px;
+    text-align:center;
+}
+
+#footer div a:link {text-decoration:none;}
+#footer div a:visited {text-decoration:none;}
+#footer div a:hover {color:#245849;text-decoration:none;}
+
+
+/* migrated from old css better safe than sorry */
+a.howellhouseLeftNav:VISITED{color:#000000;}
+.howellhouseLeftNav{font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#000000;}
+.howellhouseLeftNavBold{font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#000000;font-weight:bold;}
+
+a.bittmanLeftNav:VISITED{color:#0D5212;}  
+.bittmanLeftNav{font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#0D5212;}
+.bittmanLeftNavBold{font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#0D5212;font-weight:bold;}
+.bittmantextbold{font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#0D5212;font-weight:bold;}
+.bittmantext{font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#0D5212;}
+.bittmanheader{font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#0D5212;font-weight:bold;}
+
+
+
+
+
+
+
