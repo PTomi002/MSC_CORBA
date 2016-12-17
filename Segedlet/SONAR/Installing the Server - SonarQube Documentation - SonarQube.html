@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html class="sv-theme-splitter-initialized"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+        
+    
+        
+    <title>Installing the Server - SonarQube Documentation - SonarQube</title>
+    
+        
+
+                        
+    
+                        
+    
+                        
+    
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<meta id="confluence-context-path" name="confluence-context-path" content="">
+<meta id="confluence-base-url" name="confluence-base-url" content="http://docs.sonarqube.org">
+
+<meta id="atlassian-token" name="atlassian-token" content="154889af874f1a29b09579875f63588a16ce8ecb">
+
+
+<meta id="confluence-space-key" name="confluence-space-key" content="SONAR">
+<script type="text/javascript">
+        var contextPath = '';
+</script>
+
+    
+
+    <meta name="confluence-request-time" content="1481994009604">
+        
+    
+        
+            <meta name="ajs-is-space-admin" content=""> <meta name="ajs-has-space-config" content="">
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-discovered-plugin-features" content="$discoveredList">
+            <meta name="ajs-keyboardshortcut-hash" content="14d4556905004f69dbdd2c8c67540b9b">
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            
+    
+    
+            <meta name="ajs-page-id" content="6966046">
+            <meta name="ajs-latest-page-id" content="6966046">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-page-title" content="Installing the Server">
+            <meta name="ajs-parent-page-title" content="Setup and Upgrade">
+            <meta name="ajs-parent-page-id" content="6966044">
+            <meta name="ajs-space-key" content="SONAR">
+            <meta name="ajs-space-name" content="SonarQube Documentation">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="false">
+            <meta name="ajs-context-path" content="">
+            <meta name="ajs-base-url" content="http://docs.sonarqube.org">
+            <meta name="ajs-version-number" content="5.8.8">
+            <meta name="ajs-build-number" content="5987">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-remote-user-key" content="">
+            <meta name="ajs-current-user-fullname" content="">
+            <meta name="ajs-current-user-avatar-url" content="">
+            <meta name="ajs-static-resource-url-prefix" content="/s/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="10485760">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="confluence-inline-comments-resolved,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareContentEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.mentions.api.ConfluenceMentionEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.security.ForgotPasswordEvent,pdf-preview,notification.plugin.api.enabled.com.atlassian.confluence.plugins.tasklist.event.SendTaskEmailEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageMovedEvent,previews.sharing,previews.versions,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentUpdateEvent,file-annotations,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.attachment.AttachmentBatchUploadCompletedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentCreateEvent,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingLessUsersEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentRemoveEvent,atlassian.aui.raphael.disabled,previews.conversion-service,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.follow.FollowEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageEditedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostCreateEvent,previews.trigger-all-file-types,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentResolveEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.like.LikeCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentCreateEvent,previews.sharing.pushstate,confluence-inline-comments-rich-editor,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostUpdateEvent,file-annotations.likes,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentMentionUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingNoSpaceCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.hipchat.api.events.HipChatUserMapped,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareAttachmentEvent,confluence-inline-comments,confluence-inline-comments-dangling-comment,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostMovedEvent">
+            <meta name="ajs-atl-token" content="154889af874f1a29b09579875f63588a16ce8ecb">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-user-date-pattern" content="dd MMM yyyy">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="http://docs.sonarqube.org/s/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/_/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="http://docs.sonarqube.org/s/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/_/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="http://docs.sonarqube.org/opensearch/osd.action" title="SonarQube">
+
+<script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\"\"";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:atlassian-nps-plugin-resources.is-server-instance-data-provider"]="true";
+WRM._unparsedData["com.atlassian.plugins.browser.metrics.browser-metrics-plugin:browser-metrics.feature-data-provider-legacy"]="true";
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-rest:web-resource-manager.resource-base-url-pattern"]="\"(?:(?:/s/.*?/_)?/download)\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-license-banner:confluence-license-banner-resources.license-details"]="{\"daysBeforeLicenseExpiry\":0,\"daysBeforeMaintenanceExpiry\":0,\"showLicenseExpiryBanner\":false,\"showMaintenanceExpiryBanner\":false,\"renewUrl\":null,\"salesEmail\":null}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-hipchat-integration-plugin:discovery-javascript-data.link-active"]="{\"linkActive\":false,\"conditionsMet\":true,\"admin\":false}";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:nps-acknowledgement-resources.analytics-enabled-data-provider"]="\"true\"";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:nps-acknowledgement-resources.sen-data-provider"]="\"SEN-2546208\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-feature-discovery-plugin:confluence-feature-discovery-plugin-resources.test-mode"]="false";
+WRM._unparsedData["com.atlassian.plugins.browser.metrics.browser-metrics-plugin:api.feature-data-provider"]="true";
+</script>
+<link type="text/css" rel="stylesheet" href="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/batch_004.css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/101/_/download/superbatch/css/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/101/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/batch.css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/6c0981174e94142364564819dc0d1413-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/707f31221d4fb108059c8bc794d794c5/_/download/contextbatch/css/atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments/batch.css?conditionalComment=lt+IE+9&amp;locale=en-GB" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/batch_003.css" media="all">
+<link type="text/css" rel="stylesheet" href="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/org.css" media="all">
+<link type="text/css" rel="stylesheet" href="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/confluence.css" media="all">
+<link type="text/css" rel="stylesheet" href="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/com.css" media="all">
+<link type="text/css" rel="stylesheet" href="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/com_005.css" media="all">
+<link type="text/css" rel="stylesheet" href="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/com_002.css" media="all">
+<link type="text/css" rel="stylesheet" href="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/com_003.css" media="all">
+<link type="text/css" rel="stylesheet" href="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/com_004.css" media="all">
+<link type="text/css" rel="stylesheet" href="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/colors.css" media="all">
+<link type="text/css" rel="stylesheet" href="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/default-theme.css" media="all">
+<link type="text/css" rel="stylesheet" href="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/theme.css" media="all">
+<link type="text/css" rel="stylesheet" href="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/theme-conf4.css" media="all">
+<link type="text/css" rel="stylesheet" href="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/theme-ie9.css" media="all">
+<link type="text/css" rel="stylesheet" href="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/custom.css" media="all">
+<script type="text/javascript" src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/batch.js"></script><style></style><style type="text/css"></style>
+<script type="text/javascript" src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/batch_002.js"></script><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{display:none;}ng\:form{display:block;}</style>
+<script type="text/javascript" src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/org.js"></script>
+<script type="text/javascript" src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/org_002.js"></script>
+<script type="text/javascript" src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/com_007.js"></script>
+<script type="text/javascript" src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/com_005.js"></script>
+<script type="text/javascript" src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/com_006.js"></script>
+<script type="text/javascript" src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/com_008.js"></script>
+<script type="text/javascript" src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/com_003.js"></script>
+<script type="text/javascript" src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/com_004.js"></script>
+<script type="text/javascript" src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/com.js"></script>
+<script type="text/javascript" src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/theme.js"></script>
+<script type="text/javascript" src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/jquery.js"></script>
+<script type="text/javascript" src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/jquery_002.js"></script>
+
+
+        
+    
+
+        
+        <meta name="ajs-site-title" content="SonarQube">
+
+    
+    <style type="text/css">
+#action-export-word-link{ display: none}
+</style>
+
+    
+                <link rel="canonical" href="http://docs.sonarqube.org/display/SONAR/Installing+the+Server">
+        <link rel="shortlink" href="http://docs.sonarqube.org/x/Hktq">
+    <meta name="wikilink" content="[SONAR:Installing the Server]">
+    <meta name="page-version" content="1">
+
+
+            <meta name="ajs-use-watch" content="false">
+            <meta name="ajs-attachment-source-content-id" content="6966046">
+            <meta name="ajs-use-inline-tasks" content="true">
+            <meta name="ajs-heartbeat" content="true">
+            <meta name="ajs-action-locale" content="en_GB">
+            <meta name="ajs-editor-plugin-resource-prefix" content="/s/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/5.8.8/_">
+            <meta name="ajs-existing-draft-id" content="0">
+            <meta name="ajs-user-watching-own-content" content="false">
+            <meta name="ajs-new-page" content="false">
+            <meta name="ajs-content-id" content="6966046">
+            <meta name="ajs-editor-mode" content="richtext">
+            <meta name="ajs-form-name" content="inlinecommentform">
+            <meta name="ajs-auto-start" content="false">
+            <meta name="ajs-can-attach-files" content="false">
+            <meta name="ajs-draft-id" content="0">
+            <meta name="ajs-shared-drafts" content="false">
+            <meta name="ajs-min-editor-height" content="150">
+            <meta name="ajs-draft-share-id" content="">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-version-comment" content="">
+            <meta name="ajs-draft-type" content="page">
+                
+            		    <meta name="ajs-max-thumb-width" content="300">
+		    <meta name="ajs-max-thumb-height" content="300">
+		    <meta name="ajs-can-send-email" content="true">
+		    <meta name="ajs-is-dev-mode" content="false">
+		    <meta name="ajs-draft-save-interval" content="30000">
+		    <meta name="ajs-show-hidden-user-macros" content="false">
+		    <meta name="ajs-is-admin" content="false">
+		    <meta name="ajs-heartbeat-interval" content="30000">
+	
+    <link rel="stylesheet" type="text/css" href="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/batch_002.css"><script type="text/javascript" charset="utf-8" src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/batch_003.js"></script><script type="text/javascript" charset="utf-8" src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/com_002.js"></script><link rel="stylesheet" type="text/css" href="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/batch_005.css" media="(max-width: 1450px)"></head>
+
+<body onload="placeFocus()" id="com-atlassian-confluence" class="sv-aui sv-conf5 sv-conf57   lighter-editor  sv-theme 
+        sv-perm-view 
+     aui-theme-default aui-layout" data-aui-version="5.7.26">
+
+        
+            <div id="stp-licenseStatus-banner"></div>
+    <div id="full-height-container">
+    <div id="header-precursor">
+        
+                    </div>
+
+
+
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation" data-aui-responsive="true"><div class="aui-header-inner"><div class="aui-header-before"><a class=" aui-dropdown2-trigger app-switcher-trigger __skate" aria-owns="app-switcher" aria-controls="app-switcher" aria-haspopup="true" data-aui-trigger="" href="#app-switcher"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></a><div id="app-switcher" class="aui-dropdown2 aui-style-default"><div class="aui-dropdown2-section"><ul class="nav-links"><li class="nav-link"><a href="https://jira.sonarsource.com/" class="aui-dropdown2-radio interactive" title="https://jira.sonarsource.com/"><span class="nav-link-label">SonarSource</span></a></li><li class="nav-link nav-link-local"><a href="http://docs.sonarqube.org/" class="aui-dropdown2-radio interactive checked" title="http://docs.sonarqube.org/"><span class="nav-link-label">SonarQube</span></a></li></ul></div></div><script>
+            (function (NL) {
+                var initialise = function () {
+                    // For some milestones of AUI, the atlassian soy namespace was renamed to aui. Handle that here by ensuring that window.atlassian is defined.
+                    window.atlassian = window.atlassian || window.aui;
+                    new NL.AppSwitcher({
+                        dropdownContents: '#app-switcher'
+                    });
+                };
+                if (NL.AppSwitcher) {
+                    initialise();
+                } else {
+                    NL.onInit = initialise;
+                }
+            }(window.NL = (window.NL || {})));
+            window.NL.isUserAdmin = false</script></div><div class="aui-header-primary"><h1 id="logo" class="aui-header-logo aui-header-logo-custom"><a href="http://docs.sonarqube.org/"><img src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/confluence-logo.png" alt="SonarQube" data-aui-responsive-header-index="0"></a></h1><ul class="aui-nav __skate" style="width: auto;">
+                            <li>
+            
+        
+        
+<a id="space-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-owns="space-menu-link-content" title="Spaces"><span class="browse">Spaces</span><span class="aui-icon-dropdown"></span></a><div id="space-menu-link-content" class="aui-dropdown2 aui-style-default aui-dropdown2-in-header" aria-hidden="false"></div>
+        </li>
+                            <li id="browseMenu" role="menu">
+            
+    
+        <a id="browse-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-owns="browse-menu-link-content" title="Browse">
+        <span class="browse">Browse</span>
+    </a>
+    <nav id="browse-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                                <ul id="browse-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+    
+            
+<a id="space-pages-link" href="http://docs.sonarqube.org/pages/listpages.action?key=SONAR" class="    " title="Browse pages in the SonarQube Documentation space (g , s)">
+        Pages
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="space-blogposts-link" href="http://docs.sonarqube.org/pages/viewrecentblogposts.action?key=SONAR" class="    " title="Browse blogs in the SonarQube Documentation space">
+        Blog
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="space-labels-link" href="http://docs.sonarqube.org/labels/listlabels-heatmap.action?key=SONAR" class="    " title="Browse labels in the SonarQube Documentation space">
+        Labels
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="space-advanced-link" href="http://docs.sonarqube.org/spaces/viewspacesummary.action?key=SONAR" class="    " title="Browse additional space functions in the SonarQube Documentation space">
+        Space Operations
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+        </li>
+        <li style="display: none;"><a id="aui-responsive-header-dropdown-trigger-0" class=" aui-dropdown2-trigger __skate" aria-owns="aui-responsive-header-dropdown-content-0" aria-controls="aui-responsive-header-dropdown-content-0" aria-haspopup="true" data-aui-trigger="" href="#">More<span class="icon aui-icon-dropdown"></span></a><div id="aui-responsive-header-dropdown-content-0" class="aui-dropdown2 aui-style-default"><div class="aui-dropdown2-section"><ul id="aui-responsive-header-dropdown-list-0"></ul></div></div></li></ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav __skate">
+                        <li>
+        <form id="quick-search" class="aui-quicksearch dont-default-focus header-quicksearch" action="/dosearchsite.action" method="get"><fieldset><label for="quick-search-query" class="assistive">Quick Search</label><input id="quick-search-query" class="text app-search search quick-search-query" accesskey="q" autocomplete="off" name="queryString" title="Quick Search (/or g , g)" placeholder="Search" type="text"><input id="quick-search-submit" class="quick-search-submit" value="Search" type="submit"><div class="aui-dd-parent quick-nav-drop-down"></div></fieldset></form>
+    </li>
+        <li>
+            
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-owns="help-menu-link-content" title="Help">
+        <span class="aui-icon aui-icon-small aui-iconfont-help">Help</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                                <ul id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+        
+            
+<a id="confluence-help-link" href="https://docs.atlassian.com/confluence/docs-58/Getting+Help+And+Support" class="    " title="Visit the Confluence documentation home" target="_blank">
+        Online Help
+</a>
+</li>
+                                            <li>
+    
+                
+<a id="keyboard-shortcuts-link" href="#" class="    " title="View available keyboard shortcuts (?)">
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="feed-builder-link" href="http://docs.sonarqube.org/dashboard/configurerssfeed.action" class="    " title="Create your custom RSS feed.">
+        Feed Builder
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-58/whatsnew/iframe" class="    " title="">
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+                
+<a id="gadget-directory-link" href="#" class="   user-item administration-link " title="Browse gadgets provided by Confluence">
+        Available Gadgets
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="confluence-about-link" href="http://docs.sonarqube.org/aboutconfluencepage.action" class="    " title="Get more information about Confluence">
+        About Confluence
+</a>
+</li>
+                                            <li>
+    
+            
+<a href="http://docs.sonarqube.org/com.k15t.scroll.platform/about.action" class="   sv-getstarted " title="">
+        About Scroll Versions
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+    </li>
+        <li>
+                
+    
+    </li>
+        <li>
+            
+    </li>
+        <li>
+                                            </li><li>
+        
+            
+<a id="login-link" href="http://docs.sonarqube.org/login.action?os_destination=%2Fdisplay%2FSONAR%2FInstalling%2Bthe%2BServer" class="   user-item login-link " title="">
+        Log in
+</a>
+</li>
+                        
+    
+    </ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+
+        <div class="sv-theme-splitter" style="position: relative; height: 632px;">                                           <div class="sv-theme-navigation-container" style="position: absolute; left: 0px; width: 300px;">                                 <div class="sv-theme-navigation gradient">                                    
+                            <p><a href="http://docs.sonarqube.org/display/HOME">Home</a></p><hr><p><a href="http://docs.sonarqube.org/display/SONAR/Documentation">SonarQube</a></p><hr><p>
+
+
+</p><div class="plugin_pagetree">
+
+        
+        
+    <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
+        <div class="plugin_pagetree_children" id="children6966028-0">
+<ul class="plugin_pagetree_children_list" id="child_ul6966028-0">
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6966032-0">                        <a href="http://docs.sonarqube.org/display/SONAR/Architecture+and+Integration">Architecture and Integration</a>
+        </span>
+            </div>
+
+        <div id="children6966032-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus6966039-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6966039-0">                        <a href="http://docs.sonarqube.org/display/SONAR/Requirements">Requirements</a>
+        </span>
+            </div>
+
+        <div id="children6966039-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus6966044-0" class="plugin_pagetree_childtoggle icon icon-section-opened" href="#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6966044-0">                        <a href="http://docs.sonarqube.org/display/SONAR/Setup+and+Upgrade">Setup and Upgrade</a>
+        </span>
+            </div>
+
+        <div id="children6966044-0" class="plugin_pagetree_children_container">
+                                                        <ul class="plugin_pagetree_children_list" id="child_ul6966044-0">
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6966045-0">                        <a href="http://docs.sonarqube.org/display/SONAR/Get+Started+in+Two+Minutes">Get Started in Two Minutes</a>
+        </span>
+            </div>
+
+        <div id="children6966045-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus6966046-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span plugin_pagetree_current" id="childrenspan6966046-0">                        <a href="http://docs.sonarqube.org/display/SONAR/Installing+the+Server">Installing the Server</a>
+        </span>
+            </div>
+
+        <div id="children6966046-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6966053-0">                        <a href="http://docs.sonarqube.org/display/SONAR/Installing+a+Plugin">Installing a Plugin</a>
+        </span>
+            </div>
+
+        <div id="children6966053-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus6966054-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6966054-0">                        <a href="http://docs.sonarqube.org/display/SONAR/Upgrading">Upgrading</a>
+        </span>
+            </div>
+
+        <div id="children6966054-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+                                        </ul>
+                                        </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus6966060-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6966060-0">                        <a href="http://docs.sonarqube.org/display/SONAR/Analyzing+Source+Code">Analyzing Source Code</a>
+        </span>
+            </div>
+
+        <div id="children6966060-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus6966069-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6966069-0">                        <a href="http://docs.sonarqube.org/display/SONAR/User+Guide">User Guide</a>
+        </span>
+            </div>
+
+        <div id="children6966069-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus6966254-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="#">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6966254-0">                        <a href="http://docs.sonarqube.org/display/SONAR/Administration+Guide">Administration Guide</a>
+        </span>
+            </div>
+
+        <div id="children6966254-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan6966461-0">                        <a href="http://docs.sonarqube.org/display/SONAR/Documentation+for+previous+versions">Documentation for previous versions</a>
+        </span>
+            </div>
+
+        <div id="children6966461-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+    </ul>
+</div>
+    </ul>
+
+    <fieldset class="hidden">
+        <input name="treeId" value="" type="hidden">
+        <input name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false&amp;expandCurrent=false" type="hidden">
+        <input name="treePageId" value="6966046" type="hidden">
+
+        <input name="noRoot" value="false" type="hidden">
+        <input name="rootPageId" value="6966028" type="hidden">
+
+        <input name="rootPage" value="" type="hidden">
+        <input name="startDepth" value="0" type="hidden">
+        <input name="spaceKey" value="SONAR" type="hidden">
+
+        <input name="i18n-pagetree.loading" value="Loading..." type="hidden">
+        <input name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." type="hidden">
+        <input name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." type="hidden">
+        <input name="loginUrl" value="/login.action?os_destination=%2Fpages%2Fviewpage.action%3FspaceKey%3DSONAR%26title%3DInstalling%2Bthe%2BServer" type="hidden">
+        <input name="mobile" value="false" type="hidden">
+
+                <fieldset class="hidden">
+                                                <input name="ancestorId" value="6966044" type="hidden">
+                                    <input name="ancestorId" value="6966028" type="hidden">
+                                    </fieldset>
+    </fieldset>
+</div>
+
+<p></p><p><a href="http://docs.sonarqube.org/display/SCAN">Scanners</a></p><hr><p><a href="http://docs.sonarqube.org/display/PLUG">Plugins</a></p><hr><p><a href="http://docs.sonarqube.org/display/DEV">Extension Guide</a></p><hr><p>&nbsp;</p>
+            
+            </div>                                                                 </div><div style="z-index: 4; position: absolute; -moz-user-select: none; left: 300px;" class="vsplitbar" unselectable="on"><a href="javascript:void(0)" accesskey="l" tabindex="0" title="vsplitbar"></a></div>                                                                   <div class="sv-theme-content-container" style="position: absolute; left: 300px; width: 1001px;">                                     <div class="sv-theme-content">                                                 
+
+<div id="" class="sv-banner" style="display: none;">
+</div>
+                     
+                    
+    
+<div id="main" class="aui-page-panel">
+    <div id="main-header">
+        
+        
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                                                        
+                    
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action aui-dropdown2-trigger-arrowless aui-button aui-button-subtle ajs-menu-title aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-owns="action-menu" data-container="#navigation">
+            <span>
+                                    <span class="aui-icon aui-icon-small aui-iconfont-more"></span>
+                                
+            </span>
+        </a>         <div id="action-menu" class="aui-dropdown2 aui-style-default most-right-menu-item">
+                            <ul id="action-menu-primary" class="section-primary first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a id="view-attachments-link" href="http://docs.sonarqube.org/pages/viewpageattachments.action?pageId=6966046" rel="nofollow" class="action-view-attachments" accesskey="t" title="View Attachments (t)">
+                <span>
+                        A<u>t</u>tachments (2)
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-view-history-link" href="http://docs.sonarqube.org/pages/viewpreviousversions.action?pageId=6966046" rel="nofollow" class="action-view-history" title="">
+                <span>
+                        Page History
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-page-permissions-link" href="http://docs.sonarqube.org/pages/viewinfo.action?pageId=6966046" rel="nofollow" class="action-page-permissions" title="Edit restrictions">
+                <span>
+                        Restrictions
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul id="action-menu-secondary" class="section-secondary aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a id="view-page-info-link" href="http://docs.sonarqube.org/pages/viewinfo.action?pageId=6966046" rel="nofollow" class="action-view-info" title="">
+                <span>
+                        Page Information
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+            
+                                            
+    
+    
+    <a id="view-resolved-comments" href="#" rel="nofollow" class="" title="">
+                <span>Resolved comments (0)</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a id="link-to-page-link" href="http://docs.sonarqube.org/pages/viewinfo.action?pageId=6966046" rel="nofollow" class="" title="Link to this Page (k)">
+                <span>
+                        Link to this Page…
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a id="view-in-hierarchy-link" href="http://docs.sonarqube.org/pages/listpages-dirview.action?key=SONAR&amp;openId=6966046#selectedPageInHierarchy" rel="nofollow" class="" title="">
+                <span>
+                        View in Hierarchy
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-view-source-link" href="http://docs.sonarqube.org/plugins/viewsource/viewpagesrc.action?pageId=6966046" rel="nofollow" class="action-view-source popup-link" title="">
+                <span>
+                        View Source
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-export-word-link" href="http://docs.sonarqube.org/exportword?pageId=6966046" rel="nofollow" class="action-export-word" title="">
+                <span>
+                        Export to Word
+        </span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+        
+                <div id="title-heading" class="pagetitle with-breadcrumbs">
+                            <div class="space-logo " data-key="SONAR" data-name="SonarQube Documentation" data-entity-type="confluence.space">
+            <a href="http://docs.sonarqube.org/display/SONAR"><img class="logo space custom" src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/SONAR.gif" alt=""></a>
+        </div>            
+                            <div id="breadcrumb-section">
+                    
+    
+    
+    <ol id="breadcrumbs">
+                                        
+                        
+        <li class="first">
+                        
+                            <span class=""><a href="http://docs.sonarqube.org/display/SONAR/Documentation?src=breadcrumbs-collector">SonarQube Documentation</a></span>
+                                                                    
+                        
+        </li><li>
+                        
+                            <span class=""><a href="http://docs.sonarqube.org/display/SONAR/Documentation?src=breadcrumbs">Documentation</a></span>
+                                                                    
+                        
+        </li><li id="ellipsis" title="Show all breadcrumbs"><span><strong>…</strong></span></li><li style="display: none;">
+                        
+                            <span class=""><a href="http://docs.sonarqube.org/display/SONAR/Setup+and+Upgrade?src=breadcrumbs">Setup and Upgrade</a></span>
+                                                                    
+                        
+        </li><li>
+                        
+                            <span class=""><a href="http://docs.sonarqube.org/display/SONAR/Installing+the+Server?src=breadcrumbs-parent">Installing the Server</a></span>
+                                                    </li></ol>
+
+
+                </div>
+            
+            <h1 id="title-text" class="with-breadcrumbs">
+                            
+            <a href="http://docs.sonarqube.org/display/SONAR/Installing+the+Server">Installing the Server</a>
+                                
+                        </h1>
+        </div>
+    </div><div class="page-metadata">
+                <ul>
+                                            <li class="page-metadata-item noprint">
+
+    
+            
+                                            
+    
+    
+    <a id="content-metadata-page-restrictions" href="#" rel="nofollow" class="hidden" title="Restrictions apply">
+                    <img alt="" src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/red_padlock.png" title="" width="16" height="16">
+                <span>
+                        
+        </span>    </a>
+</li>
+                                            <li class="page-metadata-item noprint">
+
+    
+        
+                                            
+    
+    
+    <a id="content-metadata-attachments" href="http://docs.sonarqube.org/pages/viewpageattachments.action?pageId=6966046&amp;metadataLink=true" rel="nofollow" class="" accesskey="t" title="2 attachments">
+                    <img alt="" src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/grey_attach.png" title="" width="16" height="16">
+                <span>
+                        
+        </span>    </a>
+</li>
+                                        <li class="page-metadata-modification-info">
+                        
+        
+    
+        
+    
+        
+            
+            Created by <span class="author">     <a href="http://docs.sonarqube.org/display/%7Eogaudin" class="url fn">Olivier Gaudin</a></span> on <a class="last-modified" title="Show changes" href="http://docs.sonarqube.org/pages/viewpreviousversions.action?pageId=6966046">Jul 06, 2016</a>
+                        </li>
+                </ul>
+            </div><div id="sv-infoline-container">
+
+    <div id="sv-infoline" class="sv-context sv-unversioned-page" data-scroll-versions-context="{&quot;workingVersion&quot;:{&quot;versionId&quot;:&quot;current&quot;,&quot;name&quot;:&quot;Currently Published&quot;,&quot;description&quot;:&quot;&quot;,&quot;releaseDateAsString&quot;:&quot;&quot;,&quot;isArchived&quot;:false,&quot;precedingVersionId&quot;:&quot;&quot;},&quot;product&quot;:{&quot;version&quot;:&quot;2.8.7&quot;,&quot;pluginKey&quot;:&quot;com.k15t.scroll.scroll-platform&quot;},&quot;products&quot;:{&quot;com.k15t.scroll.scroll-platform&quot;:{&quot;version&quot;:&quot;2.8.7&quot;,&quot;pluginKey&quot;:&quot;com.k15t.scroll.scroll-platform&quot;},&quot;com.k15t.scroll.scroll-versions&quot;:{&quot;version&quot;:&quot;2.8.7&quot;,&quot;pluginKey&quot;:&quot;com.k15t.scroll.scroll-versions&quot;}},&quot;modules&quot;:{&quot;Publishing&quot;:{&quot;type&quot;:&quot;Publishing&quot;,&quot;isActive&quot;:true,&quot;hasValidLicense&quot;:true,&quot;licenseValidationMessageAsHtml&quot;:&quot;License for Scroll Versions is valid.&quot;,&quot;licenseExpiryInfoAsHtml&quot;:&quot;&quot;,&quot;isEnabledInSpace&quot;:true},&quot;TranslationManagement&quot;:{&quot;type&quot;:&quot;TranslationManagement&quot;,&quot;isActive&quot;:false,&quot;hasValidLicense&quot;:false,&quot;licenseValidationMessageAsHtml&quot;:&quot;Product for 'TranslationManagement' not installed.&quot;,&quot;licenseExpiryInfoAsHtml&quot;:&quot;Product for 'TranslationManagement' not installed.&quot;,&quot;isEnabledInSpace&quot;:false},&quot;WorkflowManagement&quot;:{&quot;type&quot;:&quot;WorkflowManagement&quot;,&quot;isActive&quot;:true,&quot;hasValidLicense&quot;:true,&quot;licenseValidationMessageAsHtml&quot;:&quot;License for Scroll Versions is valid.&quot;,&quot;licenseExpiryInfoAsHtml&quot;:&quot;&quot;,&quot;isEnabledInSpace&quot;:false},&quot;PermalinkSupport&quot;:{&quot;type&quot;:&quot;PermalinkSupport&quot;,&quot;isActive&quot;:true,&quot;hasValidLicense&quot;:true,&quot;licenseValidationMessageAsHtml&quot;:&quot;License for Scroll Versions is valid.&quot;,&quot;licenseExpiryInfoAsHtml&quot;:&quot;&quot;,&quot;isEnabledInSpace&quot;:true},&quot;VariantManagement&quot;:{&quot;type&quot;:&quot;VariantManagement&quot;,&quot;isActive&quot;:true,&quot;hasValidLicense&quot;:true,&quot;licenseValidationMessageAsHtml&quot;:&quot;License for Scroll Versions is valid.&quot;,&quot;licenseExpiryInfoAsHtml&quot;:&quot;&quot;,&quot;isEnabledInSpace&quot;:false},&quot;VersionManagement&quot;:{&quot;type&quot;:&quot;VersionManagement&quot;,&quot;isActive&quot;:true,&quot;hasValidLicense&quot;:true,&quot;licenseValidationMessageAsHtml&quot;:&quot;License for Scroll Versions is valid.&quot;,&quot;licenseExpiryInfoAsHtml&quot;:&quot;&quot;,&quot;isEnabledInSpace&quot;:true}},&quot;versions&quot;:[{&quot;versionId&quot;:&quot;0ABA91880158FDC85DCEE101460A99E8&quot;,&quot;name&quot;:&quot;6.2&quot;,&quot;description&quot;:&quot;This version has been created by Scroll Versions automatically and reflects the original version of this space.&quot;,&quot;releaseDateAsString&quot;:&quot;12/14/16&quot;,&quot;isArchived&quot;:false,&quot;precedingVersionId&quot;:&quot;&quot;}],&quot;space&quot;:{&quot;allVersions&quot;:[{&quot;versionId&quot;:&quot;0ABA91880158FDC85DCEE101460A99E8&quot;,&quot;name&quot;:&quot;6.2&quot;,&quot;description&quot;:&quot;This version has been created by Scroll Versions automatically and reflects the original version of this space.&quot;,&quot;releaseDateAsString&quot;:&quot;12/14/16&quot;,&quot;isArchived&quot;:false,&quot;precedingVersionId&quot;:&quot;&quot;}],&quot;allVariants&quot;:[],&quot;allRemoteSystems&quot;:[],&quot;allLanguages&quot;:[],&quot;metadataAttributes&quot;:[],&quot;isScrollVersionsEnabled&quot;:true,&quot;isVersionsEnabled&quot;:true,&quot;isTranslationsEnabled&quot;:false,&quot;isVariantManagementEnabled&quot;:false,&quot;isWorkflowEnabled&quot;:false,&quot;isDevMode&quot;:false},&quot;user&quot;:{&quot;workingVersion&quot;:{&quot;versionId&quot;:&quot;current&quot;,&quot;name&quot;:&quot;Currently Published&quot;,&quot;description&quot;:&quot;&quot;,&quot;releaseDateAsString&quot;:&quot;&quot;,&quot;isArchived&quot;:false,&quot;precedingVersionId&quot;:&quot;&quot;},&quot;currentVariant&quot;:{&quot;id&quot;:&quot;all&quot;,&quot;name&quot;:&quot;all&quot;,&quot;description&quot;:&quot;&quot;,&quot;isDefault&quot;:false,&quot;isPublic&quot;:false,&quot;conditions&quot;:[]},&quot;currentLanguage&quot;:{&quot;key&quot;:&quot;en&quot;,&quot;encodedKey&quot;:&quot;en&quot;,&quot;displayName&quot;:&quot;English&quot;,&quot;isOriginal&quot;:true},&quot;permissions&quot;:{&quot;View&quot;:true,&quot;Contribute&quot;:false,&quot;Review&quot;:false,&quot;ManageContent&quot;:false,&quot;AdministerSpace&quot;:false,&quot;Translate&quot;:false},&quot;settings&quot;:{&quot;isShowTopLevelPages&quot;:false,&quot;isShowUnavailablePages&quot;:true,&quot;isHighlightIncludes&quot;:true,&quot;isHighlightConditionalContent&quot;:true,&quot;isShowArchivedVersions&quot;:false,&quot;isDisplayPageInfoPanel&quot;:true,&quot;isRememberTreeState&quot;:true}},&quot;page&quot;:{&quot;scrollPageTitle&quot;:&quot;Installing the Server&quot;,&quot;scrollPageId&quot;:&quot;0ABA9188014F6066441C70BD2C14D97F&quot;,&quot;isFallbackChange&quot;:false,&quot;isUnresolvedChange&quot;:false,&quot;isUnversionedPage&quot;:true,&quot;targetVersion&quot;:{&quot;versionId&quot;:&quot;current&quot;,&quot;name&quot;:&quot;Currently Published&quot;,&quot;description&quot;:&quot;&quot;,&quot;releaseDateAsString&quot;:&quot;&quot;,&quot;isArchived&quot;:false,&quot;precedingVersionId&quot;:&quot;&quot;},&quot;childrenCount&quot;:3},&quot;scrollPageKey&quot;:&quot;&quot;,&quot;scrollPageTitle&quot;:&quot;Installing the Server&quot;,&quot;scrollPageId&quot;:&quot;0ABA9188014F6066441C70BD2C14D97F&quot;,&quot;targetVersion&quot;:{&quot;versionId&quot;:&quot;current&quot;,&quot;name&quot;:&quot;Currently Published&quot;,&quot;description&quot;:&quot;&quot;,&quot;releaseDateAsString&quot;:&quot;&quot;,&quot;isArchived&quot;:false,&quot;precedingVersionId&quot;:&quot;&quot;}}"></div>
+
+</div>
+
+    
+
+    
+    
+    
+    
+    
+
+        
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+    
+                    
+    
+
+    
+
+
+<div id="content" class="page view">
+    
+
+
+<div id="action-messages">
+                        </div>
+
+
+
+        <script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <td class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></td>
+        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+        
+    
+    
+        <fieldset class="hidden parameters">
+            <input title="parentPageId" value="6966044" type="hidden">
+        </fieldset>
+
+                            
+    
+
+                    
+
+        
+                            
+        
+                
+
+
+
+
+
+
+
+
+
+
+
+        
+        <fieldset class="hidden parameters">
+                        <input title="browsePageTreeMode" value="view" type="hidden">
+        </fieldset>
+
+        <div id="main-content" class="wiki-content">
+                           
+        <div class="confluence-information-macro has-no-icon confluence-information-macro-information"><p class="title">Table of Contents</p><div class="confluence-information-macro-body"><p></p><div class="toc-macro client-side-toc-macro  hidden-outline" data-headerelements="H1,H2"><ul style=""><li><span class="toc-item-body" data-outline="1"><span class="toc-outline">1</span><a href="#InstallingtheServer-installingDatabaseInstallingtheDatabase" class="toc-link">Installing the Database</a></span></li><li><span class="toc-item-body" data-outline="2"><span class="toc-outline">2</span><a href="#InstallingtheServer-installingWebServerInstallingtheWebServer" class="toc-link">Installing the Web Server</a></span></li><li><span class="toc-item-body" data-outline="3"><span class="toc-outline">3</span><a href="#InstallingtheServer-InstallingClientNextSteps" class="toc-link">Next Steps</a></span></li><li><span class="toc-item-body" data-outline="4"><span class="toc-outline">4</span><a href="#InstallingtheServer-Troubleshooting/FAQ" class="toc-link">Troubleshooting/FAQ</a></span></li></ul></div><p></p></div></div><h1 id="InstallingtheServer-installingDatabaseInstallingtheDatabase"><span class="confluence-anchor-link" id="InstallingtheServer-installingDatabase"></span>Installing the Database</h1><p><a href="http://docs.sonarqube.org/display/SONAR/Requirements#Requirements-Requirements-SupportedPlatforms">Several database engines</a> are supported. Be sure to follow the requirements listed for your database, they are real requirements not recommendations.</p><p>Create
+ an empty schema and a sonarqube user. Grant this sonarqube user 
+permissions to create, update and delete objects for this schema. The 
+charset of the database has to be set to "UTF-8" and the language 
+(database and user)&nbsp;to "English".&nbsp;</p><h3 id="InstallingtheServer-MicrosoftSQLServer">Microsoft SQL Server</h3><p><span>Note that collation <strong>MUST</strong> be case-sensitive (CS) and accent-sensitive (AS).</span></p><p>If you want to use integrated security, you have to download the Microsoft SQL JDBC Driver 4.2 package from <a href="http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&amp;id=11774" class="external-link" rel="nofollow"><u>http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&amp;id=11774</u></a>
+ and copy sqljdbc_auth.dll to any folder in your path. You have to copy 
+the 32 bit or 64 bit version of the dll depending upon the architecture 
+of your server machine. If you are running the SonarQube as a windows 
+service and want to use Integrated security, please make sure the 
+windows account under which the service is running has permission to 
+connect your SQL Server. The account should have db_owner database role 
+membership. Otherwise, if you are running the SonarQube server from a 
+command prompt and want to use Integrated security, the user under which
+ the command prompt is running should have db_owner database role 
+membership. Also ensure that sonar.jdbc.username or sonar.jdbc.password 
+properties are commented, otherwise SonarQube will use SQL 
+Authentication.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<div><div id="highlighter_692564" class="syntaxhighlighter nogutter  text"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="text plain">sonar.jdbc.url=jdbc:sqlserver://localhost;databaseName=sonar;integratedSecurity=true</code></div></div></td></tr></tbody></table></div></div>
+</div></div><p>If you want to use SQL Authentication, use the following 
+connection string. Also ensure that sonar.jdbc.username and 
+sonar.jdbc.password are set appropriately.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<div><div id="highlighter_965458" class="syntaxhighlighter nogutter  text"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="text plain">sonar.jdbc.url=jdbc:sqlserver://localhost;databaseName=sonar</code></div><div class="line number2 index1 alt1"><code class="text plain">sonar.jdbc.username=sonarqube</code></div><div class="line number3 index2 alt2"><code class="text plain">sonar.jdbc.password=mypassword</code></div></div></td></tr></tbody></table></div></div>
+</div></div><p><span><br></span></p><h3 id="InstallingtheServer-MySQL">MySQL</h3><p>There
+ are two well-known engines that can be used in MySQL: MyISAM and 
+InnoDB. MyISAM is the oldest of the two engines and is being 
+progressively replaced by InnoDB. InnoDB is clearly faster and scales 
+better with&nbsp;SonarQube as the number of projects under quality 
+control increases. If you were an early adopter of SonarQube, you 
+probably have a series of table that are still using MyISAM. To improve 
+performances, you should change the engine for all tables to InnoDB.</p><p>Once
+ all SonarQube tables are using the InnoDB engine, the first thing to do
+ is allocate a maximum amount of RAM to your MySQL instance with the <code>innodb_buffer_pool_size</code> parameter and give at least 15Mb to the <code>query_cache_size</code> parameter. Read this article about&nbsp;<a href="http://www.mysqlperformanceblog.com/2007/11/01/innodb-performance-optimization-basics/" class="external-link" rel="nofollow">InnoDB Performance Optimization Basics</a> for more information.</p><h3 id="InstallingtheServer-Oracle">Oracle</h3><p>When
+ having two SonarQube schemas on the same Oracle instance, especially if
+ they are of two different versions, SonarQube gets confused and picks 
+the first it finds. To fix this issue:</p><ul><li>Either&nbsp;privileges associated to the SonarQube Oracle users should be decreased</li><li><p>Or
+ a trigger should be defined on Oracle side to automatically alter the 
+SonarQube Oracle user session when establishing a new connection:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<div><div id="highlighter_283379" class="syntaxhighlighter nogutter  text"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="text plain">ALTER SESSION SET current_schema="MY_SONARQUBE_SCHEMA"</code></div></div></td></tr></tbody></table></div></div>
+</div></div></li></ul><div class="confluence-information-macro confluence-information-macro-warning"><p class="title">Driver Version</p><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><span>Oracle driver versions 12.1.0.1 and 12.1.0.2 </span><span style="color: rgb(34,34,34);">have major bugs, and are not recommended for use with the SonarQube ecosystem (<a href="https://groups.google.com/d/msg/sonarqube/Ahqt1iarqJg/u0BVRJZnBQAJ" class="external-link" rel="nofollow">see more details</a>).</span></p></div></div><h3 id="InstallingtheServer-PostgreSQL">PostgreSQL</h3><p>If you want to use a custom schema and not the default "public" one, the PostgreSQL <code>search_path</code> property must be set:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<div><div id="highlighter_794733" class="syntaxhighlighter nogutter  text"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="text plain">ALTER USER mySonarUser SET search_path to mySonarQubeSchema</code></div></div></td></tr></tbody></table></div></div>
+</div></div><h1 id="InstallingtheServer-installingWebServerInstallingtheWebServer"><span class="confluence-anchor-link" id="InstallingtheServer-installingWebServer"></span>Installing the Web Server</h1><p>First, check the&nbsp;<a href="http://docs.sonarqube.org/display/SONAR/Requirements">requirements</a>.</p><p>Then download and unzip the&nbsp;<a href="http://www.sonarqube.org/downloads/" class="external-link" rel="nofollow">distribution</a>&nbsp;(do not unzip&nbsp;<span>into a directory starting with a digit)</span>. Note that <a href="http://sonar-pkg.sourceforge.net/" class="external-link" rel="nofollow">native packages</a> are also available for Linux distributions.</p><p><span style="color: rgb(34,34,34);"><em>&lt;install_directory&gt;</em> (below) refers to the path to the directory where the SonarQube distribution has been unzipped.</span></p><h3 id="InstallingtheServer-SettingtheaccesstotheDatabase">Setting the access to the Database</h3><p>Edit <em>&lt;install_directory&gt;</em><em>/conf/sonar.properties</em>
+ to configure the database settings. Templates are available for every 
+supported database. Just uncomment and configure the template you need 
+and comment out the lines dedicated to H2:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example for PostgreSQL</b></div><div class="codeContent panelContent pdl">
+<div><div id="highlighter_540693" class="syntaxhighlighter nogutter  plain"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="plain plain">sonar.jdbc.username=sonarqube</code></div><div class="line number2 index1 alt1"><code class="plain plain">sonar.jdbc.password=mypassword</code></div><div class="line number3 index2 alt2"><code class="plain plain">sonar.jdbc.url=jdbc:postgresql://localhost/sonarqube</code></div></div></td></tr></tbody></table></div></div>
+</div></div><h3 id="InstallingtheServer-AddingtheJDBCDriver">Adding the JDBC Driver</h3><p>Drivers
+ for the supported databases (except Oracle) are already provided. Do 
+not replace the provided drivers; they are the only ones supported.</p><p>For Oracle, copy the JDBC driver into &lt;<em>install_directory&gt;</em><em>/extensions/jdbc-driver/oracle</em>.</p><h3 id="InstallingtheServer-StartingtheWebServer">Starting the Web Server</h3><p>The default port is "9000" and the context path is "/". These values can be changed in <em>&lt;install_directory&gt;</em><em>/conf/sonar.properties</em>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>sonar.properties</b></div><div class="codeContent panelContent pdl">
+<div><div id="highlighter_359613" class="syntaxhighlighter nogutter  plain"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="plain plain">sonar.web.host=192.0.0.1</code></div><div class="line number2 index1 alt1"><code class="plain plain">sonar.web.port=80</code></div><div class="line number3 index2 alt2"><code class="plain plain">sonar.web.context=/sonar</code></div></div></td></tr></tbody></table></div></div>
+</div></div><p><br class="atl-forced-newline"> Execute the following script to start the server:</p><ul><li>On Linux/Mac OS: bin/&lt;YOUR OS&gt;/sonar.sh start</li><li>On Windows: bin/windows-x86-XX/StartSonar.bat</li></ul><p>You can now browse SonarQube at&nbsp;<span class="nolink">http://localhost:9000</span>&nbsp;(the default <a href="http://docs.sonarqube.org/display/SONAR/Authorization">System administrator</a> credentials are admin/admin).</p><h3 id="InstallingtheServer-TuningtheWebServer">Tuning the Web Server</h3><p>By default, SonarQube is configured to run on any computer with a simple Java JRE.</p><p>For
+ better performance, the first thing to do when installing a production 
+instance is to use a Java JDK and activate the server mode by 
+uncommenting/setting the following line in <em>&lt;install_directory&gt;</em><em>/conf/sonar.properties</em>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<div><div id="highlighter_489878" class="syntaxhighlighter nogutter  plain"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="plain plain">sonar.web.javaOpts=-server</code></div></div></td></tr></tbody></table></div></div>
+</div></div><p>To change the Java JVM used by SonarQube, simply edit <em>&lt;install_directory&gt;</em><em>/conf/wrapper.conf</em> and update the following line:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<div><div id="highlighter_414452" class="syntaxhighlighter nogutter  plain"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="plain plain">wrapper.java.command=/path/to/my/jdk/bin/java</code></div></div></td></tr></tbody></table></div></div>
+</div></div><h3 id="InstallingtheServer-AdvancedInstallationFeatures">Advanced Installation Features</h3><ul><li>Running SonarQube as a Service on <a href="http://docs.sonarqube.org/display/SONAR/Running+SonarQube+as+a+Service+on+Windows">Windows </a>or <a href="http://docs.sonarqube.org/display/SONAR/Running+SonarQube+as+a+Service+on+Linux">Linux</a></li><li>Running SonarQube <a href="http://docs.sonarqube.org/display/SONAR/Securing+the+Server+Behind+a+Proxy">behind a Proxy</a></li></ul><h1 id="InstallingtheServer-InstallingClientNextSteps"><span class="confluence-anchor-link" id="InstallingtheServer-InstallingClient"></span>Next Steps</h1><p>Once your server is installed and running, you may also want to&nbsp;<a href="http://docs.sonarqube.org/display/SONAR/Installing+a+Plugin">Install Plugins</a>. Then you're ready to begin&nbsp;<a href="http://docs.sonarqube.org/display/SONAR/Analyzing+Source+Code">Analyzing Source Code</a>.</p><h1 id="InstallingtheServer-Troubleshooting/FAQ">Troubleshooting/FAQ</h1><h3 id="InstallingtheServer-Grantmorememorytothewebserver/computeengine/elasticsearch">Grant more memory to the web server / compute engine / elastic search</h3><p>To grant more memory to a server-side process, uncomment and edit the relevant <code>javaOpts</code> property in <em>$SONARQUBE_HOME/conf/sonar.properties</em>, specifically:</p><ul><li><code>sonar.web.javaOpts</code> (minimum values:&nbsp;-server -Xmx768m)</li><li><code>sonar.ce.javaOpts</code></li><li><code>sonar.search.javaOpts</code></li></ul><h3 id="InstallingtheServer-CannotconnecttoMySQLdatabase">Cannot connect to MySQL database</h3><p>By
+ default, remote access to MySQL database server is disabled for 
+security reasons. If you want to remotely access the database server, 
+you need to follow this&nbsp;<a href="http://www.cyberciti.biz/tips/how-do-i-enable-remote-access-to-mysql-database-server.html" class="external-link" rel="nofollow">quick guide</a>.</p><h3 id="InstallingtheServer-FailedtostartonWindowsVista">Failed to start on Windows Vista</h3><p>SonarQube seems unable to start when installed under the <em>Program Files</em> directory on Windows Vista. It should therefore not be installed there.</p><h3 id="InstallingtheServer-FailedtostartSonarQubewithOracleduetobadUSERStablestructure"><span style="line-height: 1.5625;">Failed to start SonarQube with Oracle due to bad USERS table structure</span></h3><p>When
+ another(s) USERS table exists in the Oracle DB, if the sonarqube user 
+has read access on this other USERS table, the SonarQube web server 
+can't start and an exception like the following one is thrown:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<div><div id="highlighter_22156" class="syntaxhighlighter nogutter  java"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="java plain">ActiveRecord::ActiveRecordError: ORA-</code><code class="java value">00904</code><code class="java plain">: </code><code class="java string">"TOTO"</code><code class="java plain">: invalid identifier</code></div><div class="line number2 index1 alt1"><code class="java plain">: INSERT INTO users (login, name, email, crypted_password, salt,&nbsp;</code></div><div class="line number3 index2 alt2"><code class="java plain">created_at, updated_at, remember_token, remember_token_expires_at, toto, id)</code></div><div class="line number4 index3 alt1"><code class="java plain">VALUES(</code><code class="java string">'admin'</code><code class="java plain">, </code><code class="java string">'Administrator'</code><code class="java plain">, </code><code class="java string">''</code><code class="java plain">, </code><code class="java string">'bba4c8a0f808f9798cf8b1c153a4bb4f9178cf59'</code><code class="java plain">, </code><code class="java string">'2519754f77ea67e5d7211cd1414698f465aacebb'</code><code class="java plain">,</code></div><div class="line number5 index4 alt2"><code class="java plain">TIMESTAMP</code><code class="java string">'2011-06-24 22:09:14'</code><code class="java plain">, TIMESTAMP</code><code class="java string">'2011-06-24 22:09:14'</code><code class="java plain">, </code><code class="java keyword">null</code><code class="java plain">, </code><code class="java keyword">null</code><code class="java plain">, </code><code class="java keyword">null</code><code class="java plain">, ?)</code></div><div class="line number6 index5 alt1"><code class="java plain">ActiveRecord::ActiveRecordError: ORA-</code><code class="java value">00904</code><code class="java plain">: </code><code class="java string">"TOTO"</code><code class="java plain">: invalid identifier</code></div><div class="line number7 index6 alt2">&nbsp;</div><div class="line number8 index7 alt1"><code class="java plain">: INSERT INTO users (login, name, email, crypted_password, salt,&nbsp;</code></div><div class="line number9 index8 alt2"><code class="java plain">created_at, updated_at, remember_token, remember_token_expires_at, toto, id)</code></div><div class="line number10 index9 alt1"><code class="java plain">VALUES(</code><code class="java string">'admin'</code><code class="java plain">, </code><code class="java string">'Administrator'</code><code class="java plain">, </code><code class="java string">''</code><code class="java plain">, </code><code class="java string">'bba4c8a0f808f9798cf8b1c153a4bb4f9178cf59'</code><code class="java plain">,&nbsp;</code></div><div class="line number11 index10 alt2"><code class="java string">'2519754f77ea67e5d7211cd1414698f465aacebb'</code><code class="java plain">, TIMESTAMP</code><code class="java string">'2011-06-24 22:09:14'</code><code class="java plain">, TIMESTAMP</code><code class="java string">'2011-06-24 22:09:14'</code><code class="java plain">, </code><code class="java keyword">null</code><code class="java plain">, </code><code class="java keyword">null</code><code class="java plain">, </code><code class="java keyword">null</code><code class="java plain">, ?)</code></div></div></td></tr></tbody></table></div></div>
+</div></div><p>To fix this issue, the rights of the sonarqube Oracle user must be decreased to remove read access on the other USERS table(s).</p><h3 id="InstallingtheServer-FailedtoconnecttotheUpdateCenterviaproxy">Failed to connect to the Update Center via proxy</h3><p>Double check that settings for proxy in file <em>SONARQUBE_HOME/conf/sonar.properties</em>&nbsp;are correctly set.<br>Note
+ that if your proxy username contains "\" (backslash), then it should be
+ escaped - for example username "domain\user" in file should look like:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<div><div id="highlighter_984272" class="syntaxhighlighter nogutter  java"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="java plain">http.proxyUser=domain\\user</code></div></div></td></tr></tbody></table></div></div>
+</div></div><p>For some proxies, exception "java.net.ProtocolException: 
+Server redirected too many times" might mean an incorrect username or 
+password has been configured.</p>
+
+                
+        
+    
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://docs.sonarqube.org/display/SONAR/Installing+the+Server"
+    dc:identifier="http://docs.sonarqube.org/display/SONAR/Installing+the+Server"
+    dc:title="Installing the Server"
+    trackback:ping="http://docs.sonarqube.org/rpc/trackback/6966046"/>
+</rdf:RDF>
+-->
+
+        
+    
+    
+
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="6966046" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right ">
+            <li class="no-labels-message">
+            No labels
+        </li>
+            </ul>
+
+    </div>
+</div>
+</div>
+
+
+            
+
+
+
+
+            
+    
+
+
+
+
+
+
+
+
+                        
+    
+<div id="comments-section" class="pageSection group">
+        
+    
+
+
+
+</div>
+
+
+            
+<div class="ic-sidebar"></div></div>
+
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+
+
+                  
+    
+                  
+    
+        
+        
+
+        
+
+        
+
+        
+
+
+
+    <br class="clear">
+</div>
+                    
+                            <div class="sv-content-footer">
+                <center>© 2008-2016, SonarSource S.A, Switzerland.<br>
+Except where otherwise noted, content in this space is licensed under a<br> 
+<a href="http://creativecommons.org/licenses/by-nc/3.0/us/">Creative Commons Attribution-NonCommercial 3.0 United States License</a>.<br>
+<a href="http://creativecommons.org/licenses/by-nc/3.0/us/"><img src="Installing%20the%20Server%20-%20SonarQube%20Documentation%20-%20SonarQube_files/88x31.png"></a><br>
+SONARQUBE is a trademark of SonarSource SA.<br>
+All other trademarks and copyrights are the property of their respective owners. </center>
+            </div>
+            
+                                    
+
+
+<div id="footer">
+
+    <section class="footer-body">
+
+                                                                    
+        
+
+        <ul id="poweredby">
+            <li class="noprint">
+                Powered by <a href="http://www.k15t.com/">Scroll Content Management Add-ons</a> for
+                <a href="http://www.atlassian.com/software/confluence">Atlassian Confluence 5.8.8 </a> | 2.8.7
+            </li>
+            <li class="print-only">Powered by Scroll Content Management Add-ons for Atlassian Confluence.</li>
+        </ul>
+
+        
+
+                    
+        
+    </section>
+
+</div>
+                            </div>                                                                 </div>                                                               </div>                                                                 
+
+
+</div>
+
+
+<div id="fancybox-tmp"></div><div id="fancybox-loading"><div></div></div><div id="fancybox-overlay"></div><div id="fancybox-wrap"><div id="fancybox-outer"><div class="fancybox-bg" id="fancybox-bg-n"></div><div class="fancybox-bg" id="fancybox-bg-ne"></div><div class="fancybox-bg" id="fancybox-bg-e"></div><div class="fancybox-bg" id="fancybox-bg-se"></div><div class="fancybox-bg" id="fancybox-bg-s"></div><div class="fancybox-bg" id="fancybox-bg-sw"></div><div class="fancybox-bg" id="fancybox-bg-w"></div><div class="fancybox-bg" id="fancybox-bg-nw"></div><div id="fancybox-content"></div><a id="fancybox-close"></a><div id="fancybox-title"></div><a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div></div><div id="content-hover-shadow" style="display: none;"><div class="tl"></div><div class="tr"></div><div class="l"></div><div class="r"></div><div class="bl"></div><div class="br"></div><div class="b"></div></div><div class="qr-notice-container"></div><div id="fileuploadShim" style="position: relative; z-index: 0;"></div><div id="p1b46rjnoij3m1jfs1ge1u1p38q0_html5_container" style="position: absolute; background: transparent none repeat scroll 0% 0%; width: 1301px; height: 0px; overflow: hidden; z-index: -1; opacity: 0; top: 0px; left: 0px;" class="plupload html5"><input id="p1b46rjnoij3m1jfs1ge1u1p38q0_html5" style="font-size: 999px; position: absolute; width: 100%; height: 100%;" accept="" multiple="multiple" type="file"></div><div id="editor-preload-container" style="display: none;">
+ 
+
+<div class="hidden">
+        
+
+
+<content tag="breadcrumbs">
+    
+    
+    <ol id="quickedit-breadcrumbs">
+                                        
+                        
+        <li class="first">
+                        
+                            <span class=""><a href="http://docs.sonarqube.org/display/SONAR">SonarQube Documentation</a></span>
+                                                                    
+                        
+        </li><li>
+                        
+                            <span class=""><a href="http://docs.sonarqube.org/display/SONAR/Documentation">Documentation</a></span>
+                                                                    
+                        
+        </li><li>
+                        
+                            <span class=""><a href="http://docs.sonarqube.org/display/SONAR/Setup+and+Upgrade">Setup and Upgrade</a></span>
+                                                                    
+                        
+        </li><li>
+                        
+                            <span class="edited-page-title"><a href="http://docs.sonarqube.org/display/SONAR/Installing+the+Server">Installing the Server</a></span>
+                                                    </li></ol>
+
+</content>
+</div>
+
+
+        
+    <div id="anonymous-warning" class="aui-message warning closeable">You are not logged in. Any changes you make will be marked as <span class="smalltext">anonymous</span>.</div>
+
+                                                                                        
+
+<script type="text/x-template" title="editor-css" id="editor-css-resources">
+    <link type="text/css" rel="stylesheet" href="/s/a0e7d7cbf1954d7b1c15fa3803f0c52a-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/5.7.26/_/download/batch/com.atlassian.auiplugin:aui-page-typography/com.atlassian.auiplugin:aui-page-typography.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/a0e7d7cbf1954d7b1c15fa3803f0c52a-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/5.7.26/_/download/batch/com.atlassian.auiplugin:aui-avatars/com.atlassian.auiplugin:aui-avatars.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/bc2b649abf0dc5c30482dc0438eaa344-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/5.7.26/_/download/batch/com.atlassian.auiplugin:aui-page-layout/com.atlassian.auiplugin:aui-page-layout.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/9fa980e146552888ac60a3f489b93d2d-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/5.8.8/_/download/batch/com.atlassian.confluence.editor:editor-content-styles/com.atlassian.confluence.editor:editor-content-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/5.8.8/_/download/batch/com.atlassian.confluence.plugins.confluence-templates:variable-editor-content-styles/com.atlassian.confluence.plugins.confluence-templates:variable-editor-content-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/a0e7d7cbf1954d7b1c15fa3803f0c52a-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/5.7.26/_/download/batch/com.atlassian.auiplugin:aui-lozenge/com.atlassian.auiplugin:aui-lozenge.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/2.17/_/download/batch/com.atlassian.confluence.plugins.status-macro:view_content_status/com.atlassian.confluence.plugins.status-macro:view_content_status.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/b101b8dda4c2f08f197212b498d4c2d6-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/2.17/_/download/batch/com.atlassian.confluence.plugins.status-macro:editor_content_status/com.atlassian.confluence.plugins.status-macro:editor_content_status.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/866c298066be98b60bad663fa8232706-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/3.6.16/_/download/batch/confluence.extra.attachments:attachments-css/confluence.extra.attachments:attachments-css.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/12.3.7/_/download/batch/com.atlassian.confluence.plugins.confluence-roadmap-plugin:roadmap-placeholder-css/com.atlassian.confluence.plugins.confluence-roadmap-plugin:roadmap-placeholder-css.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/1.0/_/download/batch/confluence.web.resources:panel-styles/confluence.web.resources:panel-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/1.0/_/download/batch/confluence.web.resources:content-styles/confluence.web.resources:content-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/5.8.8/_/download/batch/com.atlassian.confluence.plugins.confluence-page-layout:editor-pagelayout-content-styles/com.atlassian.confluence.plugins.confluence-page-layout:editor-pagelayout-content-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/4.0.3/_/download/batch/com.atlassian.confluence.plugins.confluence-business-blueprints:sharelinks-urlmacro-editor-resources/com.atlassian.confluence.plugins.confluence-business-blueprints:sharelinks-urlmacro-editor-resources.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/5.7.0/_/download/batch/com.atlassian.confluence.plugins.confluence-inline-tasks:inline-tasks-styles/com.atlassian.confluence.plugins.confluence-inline-tasks:inline-tasks-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/5.7.0/_/download/batch/com.atlassian.confluence.plugins.confluence-inline-tasks:editor-autocomplete-date-css/com.atlassian.confluence.plugins.confluence-inline-tasks:editor-autocomplete-date-css.css" media="all">
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/5.7.0/_/download/batch/com.atlassian.confluence.plugins.confluence-inline-tasks:editor-autocomplete-date-css/com.atlassian.confluence.plugins.confluence-inline-tasks:editor-autocomplete-date-css.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/97d74cab5d18eb3fceb1421669dd5e96-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/1.4.26/_/download/batch/com.atlassian.confluence.plugins.confluence-view-file-macro:view-file-macro-editor-content-resources/com.atlassian.confluence.plugins.confluence-view-file-macro:view-file-macro-editor-content-resources.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/2.4/_/download/batch/com.atlassian.confluence.plugins.confluence-software-blueprints:common-resources/com.atlassian.confluence.plugins.confluence-software-blueprints:common-resources.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/7/_/styles/colors.css?spaceKey=SONAR" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/2.8.7/_/download/resources/com.k15t.scroll.scroll-platform:sv-theme/default-theme.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/2.8.7/_/download/resources/com.k15t.scroll.scroll-platform:sv-theme/theme.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/2.8.7/_/download/resources/com.k15t.scroll.scroll-platform:sv-theme/theme-conf4.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/2.8.7/_/download/resources/com.k15t.scroll.scroll-platform:sv-theme/theme-ie9.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/7/_/styles/custom.css?spaceKey=SONAR" media="all">
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+<div class="editor-container">
+
+        
+            
+
+<div id="link-browser-tab-items" class="hidden">
+                <div title="Search" data-weight="10">search</div>
+            <div title="Files" data-weight="30">attachments</div>
+            <div title="Web link" data-weight="40">weblink</div>
+            <div title="Advanced" data-weight="50">advanced</div>
+            <div title="Browse" data-weight="100">pagetree</div>
+    </div>
+            <div id="image-properties-tab-items" class="hidden">
+                <div title="Effects" data-weight="10">image-effects</div>
+            <div title="Title" data-weight="20">image-attributes</div>
+    </div>
+            
+
+ 
+
+
+
+
+
+
+
+
+
+
+        <div id="toolbar">
+        <div id="rte-toolbar" class="aui-toolbar aui-toolbar2">
+
+            <div class="aui-toolbar2-primary toolbar-primary">
+                <ul class="aui-buttons rte-toolbar-group-formatting">
+                                        <li id="format-dropdown" class="toolbar-item toolbar-dropdown">
+                        <div class="aui-dd-parent">
+                            <a id="format-dropdown-display" href="#" class="toolbar-trigger aui-dd-trigger aui-button" data-control-id="formatselect">
+                                <span class="dropdown-text">Paragraph</span>
+                                    <span class="icon icon-dropdown "></span>
+                            </a>
+                            <ul id="format-dropdown-display-menu" class="aui-dropdown hidden">
+                                    <li class="dropdown-item format-p" data-format="p" data-tooltip="Paragraph (Ctrl+0)">
+        <a class="item-link" href="#">Paragraph</a>
+    </li>
+                                    <li class="dropdown-item format-h1" data-format="h1" data-tooltip="Heading 1 (Ctrl+1)">
+        <a class="item-link" href="#">Heading 1</a>
+    </li>
+                                    <li class="dropdown-item format-h2" data-format="h2" data-tooltip="Heading 2 (Ctrl+2)">
+        <a class="item-link" href="#">Heading 2</a>
+    </li>
+                                    <li class="dropdown-item format-h3" data-format="h3" data-tooltip="Heading 3 (Ctrl+3)">
+        <a class="item-link" href="#">Heading 3</a>
+    </li>
+                                    <li class="dropdown-item format-h4" data-format="h4" data-tooltip="Heading 4 (Ctrl+4)">
+        <a class="item-link" href="#">Heading 4</a>
+    </li>
+                                    <li class="dropdown-item format-h5" data-format="h5" data-tooltip="Heading 5 (Ctrl+5)">
+        <a class="item-link" href="#">Heading 5</a>
+    </li>
+                                    <li class="dropdown-item format-h6" data-format="h6" data-tooltip="Heading 6 (Ctrl+6)">
+        <a class="item-link" href="#">Heading 6</a>
+    </li>
+                                    <li class="dropdown-item format-pre" data-format="pre" data-tooltip="Preformatted (Ctrl+7)">
+        <a class="item-link" href="#">Preformatted</a>
+    </li>
+                                    <li class="dropdown-item format-blockquote" data-format="blockquote" data-tooltip="Quote (Ctrl+8)">
+        <a class="item-link" href="#">Quote</a>
+    </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="aui-buttons rte-toolbar-group-style">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-bold" data-tooltip="Bold (Ctrl+B)">
+        <a class="toolbar-trigger" href="#" data-control-id="bold">
+                <span class="icon icon-bold ">Bold</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-italic" data-tooltip="Italic (Ctrl+I)">
+        <a class="toolbar-trigger" href="#" data-control-id="italic">
+                <span class="icon icon-italic ">Italic</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-underline" data-tooltip="Underline (Ctrl+U)">
+        <a class="toolbar-trigger" href="#" data-control-id="underline">
+                <span class="icon icon-underline ">Underline</span>
+        </a>
+    </li>
+                                        <li id="color-picker-control" class="toolbar-item toolbar-splitbutton">
+                        <a class="toolbar-trigger aui-button" href="#" id="rte-button-color" data-color="003366" data-tooltip="Colour"><span class="icon icon-textcolor ">Colour picker</span><span class="selected-color"></span></a><div class="aui-dd-parent"><a class="toolbar-trigger aui-dd-trigger aui-button" href="#" id="rte-button-color-selector" data-control-id="colorSelector" data-tooltip="More colours"><span class="icon icon-dropdown ">More colours</span></a><div class="color-picker-container"><div class="color-picker aui-dropdown hidden"><ul><li><a href="#" style="background-color: #000000" data-color="000000">&nbsp;</a></li><li><a href="#" style="background-color: #993300" data-color="993300">&nbsp;</a></li><li><a href="#" style="background-color: #333300" data-color="333300">&nbsp;</a></li><li><a href="#" style="background-color: #003300" data-color="003300">&nbsp;</a></li><li><a href="#" style="background-color: #003366" data-color="003366">&nbsp;</a></li><li><a href="#" style="background-color: #000080" data-color="000080">&nbsp;</a></li><li><a href="#" style="background-color: #333399" data-color="333399">&nbsp;</a></li><li><a href="#" style="background-color: #333333" data-color="333333">&nbsp;</a></li><li><a href="#" style="background-color: #800000" data-color="800000">&nbsp;</a></li><li><a href="#" style="background-color: #FF6600" data-color="FF6600">&nbsp;</a></li><li><a href="#" style="background-color: #808000" data-color="808000">&nbsp;</a></li><li><a href="#" style="background-color: #008000" data-color="008000">&nbsp;</a></li><li><a href="#" style="background-color: #008080" data-color="008080">&nbsp;</a></li><li><a href="#" style="background-color: #0000FF" data-color="0000FF">&nbsp;</a></li><li><a href="#" style="background-color: #666699" data-color="666699">&nbsp;</a></li><li><a href="#" style="background-color: #808080" data-color="808080">&nbsp;</a></li><li><a href="#" style="background-color: #FF0000" data-color="FF0000">&nbsp;</a></li><li><a href="#" style="background-color: #FF9900" data-color="FF9900">&nbsp;</a></li><li><a href="#" style="background-color: #99CC00" data-color="99CC00">&nbsp;</a></li><li><a href="#" style="background-color: #339966" data-color="339966">&nbsp;</a></li><li><a href="#" style="background-color: #33CCCC" data-color="33CCCC">&nbsp;</a></li><li><a href="#" style="background-color: #3366FF" data-color="3366FF">&nbsp;</a></li><li><a href="#" style="background-color: #800080" data-color="800080">&nbsp;</a></li><li><a href="#" style="background-color: #999999" data-color="999999">&nbsp;</a></li><li><a href="#" style="background-color: #FF00FF" data-color="FF00FF">&nbsp;</a></li><li><a href="#" style="background-color: #FFCC00" data-color="FFCC00">&nbsp;</a></li><li><a href="#" style="background-color: #FFFF00" data-color="FFFF00">&nbsp;</a></li><li><a href="#" style="background-color: #00FF00" data-color="00FF00">&nbsp;</a></li><li><a href="#" style="background-color: #00FFFF" data-color="00FFFF">&nbsp;</a></li><li><a href="#" style="background-color: #00CCFF" data-color="00CCFF">&nbsp;</a></li><li><a href="#" style="background-color: #993366" data-color="993366">&nbsp;</a></li><li><a href="#" style="background-color: #C0C0C0" data-color="C0C0C0">&nbsp;</a></li><li><a href="#" style="background-color: #FF99CC" data-color="FF99CC">&nbsp;</a></li><li><a href="#" style="background-color: #FFCC99" data-color="FFCC99">&nbsp;</a></li><li><a href="#" style="background-color: #FFFF99" data-color="FFFF99">&nbsp;</a></li><li><a href="#" style="background-color: #CCFFCC" data-color="CCFFCC">&nbsp;</a></li><li><a href="#" style="background-color: #CCFFFF" data-color="CCFFFF">&nbsp;</a></li><li><a href="#" style="background-color: #99CCFF" data-color="99CCFF">&nbsp;</a></li><li><a href="#" style="background-color: #CC99FF" data-color="CC99FF">&nbsp;</a></li><li><a href="#" style="background-color: #FFFFFF" data-color="FFFFFF">&nbsp;</a></li></ul></div></div></div>
+                    </li>
+                    <li id="more-menu" class="toolbar-item toolbar-dropdown">
+                        <div class="aui-dd-parent">
+                            <a id="rte-button-more" href="#" class="toolbar-trigger aui-dd-trigger aui-button" data-tooltip="More">
+                                    <span class="icon icon-more ">Formatting</span>
+                                    <span class="icon icon-dropdown "></span>
+                            </a>
+                            <div id="rte-button-more-menu" class="aui-dropdown grouped hidden">
+                                <div class="grouped-dropdown-item">
+                                    <ul>
+                                                                <li class="dropdown-item more-menu-trigger" data-control-id="strikethrough" data-tooltip="Strikethrough (Ctrl+Shift+S)">
+        <a id="rte-strikethrough" class="item-link" href="#">
+                <span class="icon icon-check hidden"></span>
+Strikethrough
+        </a>
+    </li>
+                                                                 <li class="dropdown-item more-menu-trigger" data-control-id="sub" data-tooltip="">
+        <a id="rte-sub" class="item-link" href="#">
+                <span class="icon icon-check hidden"></span>
+Subscript
+        </a>
+    </li>
+                                                                 <li class="dropdown-item more-menu-trigger" data-control-id="sup" data-tooltip="">
+        <a id="rte-sup" class="item-link" href="#">
+                <span class="icon icon-check hidden"></span>
+Superscript
+        </a>
+    </li>
+                                                        <li class="dropdown-item more-menu-trigger" data-control-id="monospace" data-tooltip="Format text with monospaced font">
+        <a id="rte-monospace" class="item-link" href="#">
+                <span class="icon icon-check hidden"></span>
+Monospace
+        </a>
+    </li>
+
+                                                                                                                    </ul>
+                                </div>
+                                <div class="grouped-dropdown-item">
+                                    <ul>
+                                            <li class="dropdown-item more-menu-trigger no-icon" data-format="removeformat" data-tooltip="Clears formatting on currently selected text">
+        <a id="rte-removeformat" class="item-link" href="#">
+            Clear formatting
+        </a>
+    </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
+
+                <ul class="aui-buttons rte-toolbar-group-lists">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-bullist" data-tooltip="Bullet list (Ctrl+Shift+B)">
+        <a class="toolbar-trigger" href="#" data-control-id="bullist">
+                <span class="icon icon-bullist ">Bullet list</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-numlist" data-tooltip="Numbered list (Ctrl+Shift+N)">
+        <a class="toolbar-trigger" href="#" data-control-id="numlist">
+                <span class="icon icon-numlist ">Numbered list</span>
+        </a>
+    </li>
+                </ul>
+                                <ul class="aui-buttons rte-toolbar-group-task-lists">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-tasklist" data-tooltip="Task list ([ then ])">
+        <a class="toolbar-trigger" href="#" data-control-id="tasklist">
+                <span class="icon icon-tasklist ">Task list</span>
+        </a>
+    </li>
+                </ul>
+                
+                <ul class="aui-buttons rte-toolbar-group-indentation">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-outdent" data-tooltip="Outdent">
+        <a class="toolbar-trigger" href="#" data-control-id="outdent">
+                <span class="icon icon-outdent ">Outdent</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-indent" data-tooltip="Indent">
+        <a class="toolbar-trigger" href="#" data-control-id="indent">
+                <span class="icon icon-indent ">Indent</span>
+        </a>
+    </li>
+                </ul>
+
+                <ul class="aui-buttons rte-toolbar-group-justification">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-justifyleft" data-tooltip="Align left">
+        <a class="toolbar-trigger" href="#" data-control-id="justifyleft">
+                <span class="icon icon-justifyleft ">Align left</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-justifycenter" data-tooltip="Align center">
+        <a class="toolbar-trigger" href="#" data-control-id="justifycenter">
+                <span class="icon icon-justifycenter ">Align center</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-justifyright" data-tooltip="Align right">
+        <a class="toolbar-trigger" href="#" data-control-id="justifyright">
+                <span class="icon icon-justifyright ">Align right</span>
+        </a>
+    </li>
+                </ul>
+
+                                <ul class="aui-buttons hidden" id="page-layout-2-group">
+                    <li id="page-layout-2" class="toolbar-item" data-tooltip="Page layout">
+                        <a href="#" class="aui-button toolbar-trigger" id="rte-button-pagelayout-2">
+                                <span class="icon icon-layout ">Page layout</span>
+                        </a>
+                    </li>
+                </ul>
+                
+
+                <ul class="aui-buttons rte-toolbar-group-files hidden"></ul>
+
+                <ul class="aui-buttons rte-toolbar-group-link no-separator">
+                    <li class="toolbar-item" data-tooltip="Insert link (Ctrl+K)">
+                        <a id="rte-button-link" class="toolbar-trigger aui-button" href="#" data-control-id="linkbrowserButton">
+                                <span class="icon icon-link "></span>
+                            <span class="trigger-text">Link</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="aui-buttons rte-toolbar-group-table no-separator">
+                    <li class="toolbar-item toolbar-dropdown" id="insert-table-dropdown">
+                        <div class="aui-dd-parent">
+                            <a href="#" class="toolbar-trigger aui-dd-trigger aui-button" id="rte-button-insert-table" data-tooltip="Insert table">
+                                    <span class="icon icon-table "></span>
+                                <span class="dropdown-text">Table</span>
+                                    <span class="icon icon-dropdown "></span>
+                            </a>
+
+                            <div id="table-picker-container" class="hidden aui-box-shadow">
+                                <div class="table-picker-box" data-tooltip="Hold SHIFT for a table without a heading.">
+                                    <div class="table-picker-background">
+                                        <div class="picker picker-cell"></div>
+                                        <div class="picker picker-heading heading"></div>
+                                        <div class="picker picker-selected-cell"></div>
+                                        <div class="picker picker-selected-heading heading"></div>
+                                    </div>
+                                    <p class="desc"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                                                                
+                
+                <ul class="aui-buttons rte-toolbar-group-insert no-separator">
+                    <li class="toolbar-item toolbar-dropdown" id="insert-menu">
+                        <div class="aui-dd-parent">
+                            <a href="#" class="toolbar-trigger aui-dd-trigger aui-button" id="rte-button-insert" data-tooltip="Insert more content">
+                                    <span class="icon icon-insert "></span>
+                                <span class="dropdown-text">Insert</span>
+                                    <span class="icon icon-dropdown "></span>
+                            </a>
+
+                            <div id="insert-menu-options" class="aui-dropdown grouped hidden">
+                                <div class="grouped-dropdown-item">
+                                    <span class="assistive">Insert content</span>
+                                    <ul id="content-insert-list">
+                                        
+        
+        <li class="dropdown-item content-image" data-command="mceConfimage" data-tooltip="Insert files and images (Ctrl+M)">
+        <a id="rte-insert-image" class="item-link" href="#">
+                <span class="icon "></span>
+ Files and images
+        </a>
+    </li>
+                                        
+        
+        <li class="dropdown-item content-link" data-control-id="linkbrowserButton" data-tooltip="Insert link (Ctrl+K)">
+        <a id="rte-insert-link" class="item-link" href="#">
+                <span class="icon "></span>
+ Link
+        </a>
+    </li>
+                                        
+    
+        <li class="dropdown-item content-symbol" data-command="confCharmap" data-tooltip="Insert symbol">
+        <a id="rte-insert-symbol" class="item-link" href="#">
+                <span class="icon "></span>
+ Symbol
+        </a>
+    </li>
+                                        
+    
+        <li class="dropdown-item content-emoticon" data-command="mceEmotion" data-tooltip="Insert emoticon">
+        <a id="rte-insert-emoticon" class="item-link" href="#">
+                <span class="icon "></span>
+ Emoticon
+        </a>
+    </li>
+                                        
+        
+        <li class="dropdown-item content-wikimarkup" data-command="InsertWikiMarkup" data-tooltip="Insert markup (Ctrl+Shift+D)">
+        <a id="rte-insert-wikimarkup" class="item-link" href="#">
+                <span class="icon "></span>
+ Markup
+        </a>
+    </li>
+                                        
+    
+        <li class="dropdown-item content-hr" data-command="InsertHorizontalRule" data-tooltip="Insert horizontal rule (----)">
+        <a id="rte-insert-hr" class="item-link" href="#">
+                <span class="icon "></span>
+ Horizontal rule
+        </a>
+    </li>
+                                                                                    
+        
+        <li class="dropdown-item content-tasklist" data-command="InsertInlineTaskListNoToggle" data-tooltip="Insert task list ([ then ])">
+        <a id="rte-insert-tasklist" class="item-link" href="#">
+                <span class="icon "></span>
+ Task list
+        </a>
+    </li>
+                                                                            </ul>
+                                </div>
+                                <div class="grouped-dropdown-item">
+                                    <span class="assistive">Insert macro</span>
+                                    <ul id="macro-insert-list">
+                                                                        
+                                                                        
+                                <li class="dropdown-item macro-insertmention-button" data-macro-name="insertmention-button" data-tooltip="Insert 'User mention' macro">
+        <a id="insertmention-button" class="item-link" href="#">
+                <span class="icon "></span>
+ User mention
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-jiralink" data-macro-name="jiralink" data-tooltip="Insert 'JIRA Issue/Filter' macro">
+        <a id="jiralink" class="item-link" href="#">
+                <span class="icon "></span>
+ JIRA Issue/Filter
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-info" data-macro-name="info" data-tooltip="Insert 'Info' macro">
+        <a id="info" class="item-link" href="#">
+                <span class="icon "></span>
+ Info
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-status" data-macro-name="status" data-tooltip="Insert 'Status' macro">
+        <a id="status" class="item-link" href="#">
+                <span class="icon "></span>
+ Status
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-gallery" data-macro-name="gallery" data-tooltip="Insert 'Gallery' macro">
+        <a id="gallery" class="item-link" href="#">
+                <span class="icon "></span>
+ Gallery
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-toc" data-macro-name="toc" data-tooltip="Insert 'Table of Contents' macro">
+        <a id="toc" class="item-link" href="#">
+                <span class="icon "></span>
+ Table of Contents
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-includeplus" data-macro-name="includeplus" data-tooltip="Insert 'Include+' macro">
+        <a id="includeplus" class="item-link" href="#">
+                <span class="icon "></span>
+ Include+
+        </a>
+    </li>
+                                                                                                                            
+        
+        <li class="dropdown-item content-macro" data-command="mceConfMacroBrowser" data-tooltip="Open the macro browser (Ctrl+Shift+A)">
+        <a id="rte-insert-macro" class="item-link" href="#">
+                <span class="icon "></span>
+ Other macros
+        </a>
+    </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                                <ul class="aui-buttons rte-toolbar-group-page-layouts-section-types">
+                    <li id="pagelayout-menu" class="toolbar-item toolbar-dropdown">
+                        <div class="aui-dd-parent">
+                            <a href="#" class="toolbar-trigger aui-dd-trigger aui-button" id="rte-button-pagelayout" data-tooltip="Page layout">
+                                    <span class="icon icon-layout pagelayout-default">Page layout</span>
+                                    <span class="icon icon-dropdown "></span>
+                            </a>
+
+                            <ul id="pagelayout-menu-options" class="aui-dropdown hidden">
+                                <li class="dropdown-item" data-tooltip="No layout">
+    <a href="#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-none&quot;, &quot;columns&quot;: 0   }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-none">No layout</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Two column (simple)">
+    <a href="#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two-simple&quot;, &quot;columns&quot;: [&quot;&quot;, &quot;&quot;]   }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-two-simple">Two column (simple)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Two column (simple, left sidebar)">
+    <a href="#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two-simple-left&quot;, &quot;columns&quot;: [&quot;aside&quot;, &quot;large&quot;]   }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-two-simple-left">Two column (simple, left sidebar)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Two column (simple, right sidebar)">
+    <a href="#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two-simple-right&quot;, &quot;columns&quot;: [&quot;large&quot;, &quot;aside&quot;]   }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-two-simple-right">Two column (simple, right sidebar)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Three column (simple)">
+    <a href="#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-three-simple&quot;, &quot;columns&quot;: [&quot;&quot;, &quot;&quot;, &quot;&quot;]   }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-three-simple">Three column (simple)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Two column">
+    <a href="#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two&quot;, &quot;columns&quot;: [&quot;&quot;, &quot;&quot;] , &quot;header&quot;: true  , &quot;footer&quot;:true  }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-two">Two column</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Two column (left sidebar)">
+    <a href="#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two-left&quot;, &quot;columns&quot;: [&quot;aside&quot;, &quot;large&quot;] , &quot;header&quot;: true  , &quot;footer&quot;:true  }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-two-left">Two column (left sidebar)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Two column (right sidebar)">
+    <a href="#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two-right&quot;, &quot;columns&quot;: [&quot;large&quot;, &quot;aside&quot;] , &quot;header&quot;: true  , &quot;footer&quot;:true  }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-two-right">Two column (right sidebar)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Three column">
+    <a href="#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-three&quot;, &quot;columns&quot;: [&quot;&quot;, &quot;&quot;, &quot;&quot;] , &quot;header&quot;: true  , &quot;footer&quot;:true  }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-three">Three column</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Three column (left and right sidebars)">
+    <a href="#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-three-sidebars&quot;, &quot;columns&quot;: [&quot;sidebars&quot;, &quot;large&quot;, &quot;sidebars&quot;] , &quot;header&quot;: true  , &quot;footer&quot;:true  }">
+            <span class="icon icon-check hidden"></span>
+            <span class="icon icon-layout pagelayout-three-sidebars">Three column (left and right sidebars)</span>
+    </a>
+</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                
+                                                
+                <ul class="aui-buttons rte-toolbar-group-undo">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-undo" data-tooltip="Undo (Ctrl+Z)">
+        <a class="toolbar-trigger" href="#" data-control-id="undo">
+                <span class="icon icon-undo ">Undo</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-redo" data-tooltip="Redo (Ctrl+Y)">
+        <a class="toolbar-trigger" href="#" data-control-id="redo">
+                <span class="icon icon-redo ">Redo</span>
+        </a>
+    </li>
+                </ul>
+
+            </div>                                                                                                <div id="draft-status" style="display:none"></div>
+                            <div class="aui-toolbar2-secondary">
+                <ul class="aui-buttons rte-toolbar-group-searchreplace">
+                        <li class="toolbar-item aui-button" id="rte-button-searchreplace" data-tooltip="Find/Replace">
+        <a class="toolbar-trigger" href="#" data-control-id="searchreplace">
+                <span class="icon icon-searchreplace ">Find/Replace</span>
+        </a>
+    </li>
+                </ul>
+                <ul class="aui-buttons rte-toolbar-group-help">
+                        <li class="toolbar-item aui-button" id="rte-button-help" data-tooltip="Help">
+        <a class="toolbar-trigger" href="#" data-control-id="help">
+                <span class="icon icon-help ">Keyboard shortcuts help</span>
+        </a>
+    </li>
+                </ul>
+            </div>        </div>    </div>
+
+        
+        
+        
+                            <div id="editor-notifications-container"><div id="editor-messages"><div id="anonymous-warning" class="aui-message warning closeable">You are not logged in. Any changes you make will be marked as <span class="smalltext">anonymous</span>.</div><div id="heartbeat-div" class="hidden"><div class="aui-message info closeable"><span class="aui-icon icon-info"></span>This page is also being edited by <span id="other-users-span"></span>. Your changes will be merged with theirs when you save.</div></div></div><div id="all-messages"><div id="action-messages"></div></div></div><div id="editor-precursor"><div class="cell"><div class="aui-buttons aui-toolbar2"><button class="aui-button aui-button-subtle" type="button" data-tooltip="Labels" id="rte-button-labels" data-explicit-restrictions="" data-inherited-restrictions=""><span class="icon icon-labels"></span></button></div><div id="content-title-div"><input name="title" id="content-title" tabindex="1" class="text pagetitle" autocomplete="off" value="Installing the Server" placeholder="Page title" type="text"></div></div></div>
+    
+    <div id="wysiwyg">
+        <div id="rte" class="cell editor-default">
+            <textarea id="wysiwygTextarea" name="wysiwygContent" class="hidden tinymce-editor"></textarea>
+        </div>
+    </div>
+    <div id="editor-html-source-container" class="hidden">
+        <textarea id="editor-html-source" class="monospaceInput"></textarea>
+    </div>
+
+    <div id="preview">
+                        <div id="previewArea" class="cell">
+        </div>
+    </div>
+
+            <div id="savebar-container"><div id="rte-savebar" class="aui-toolbar aui-toolbar2"><div class="toolbar-split toolbar-split-row"><div class="toolbar-split toolbar-split-left"><div class="aui-buttons"></div></div><div class="toolbar-split toolbar-split-right"><div class="aui-buttons" id="rte-savebar-tinymce-plugin-point"></div><div class="aui-buttons"><span id="rte-spinner" class="toolbar-item">&nbsp;</span></div><div class="aui-buttons toolbar-group-edit assistive"><button id="rte-button-edit" class="aui-button" title="Return To edit Mode" type="button"><span class="trigger-text">Edit</span></button></div><div class="aui-buttons toolbar-group-preview"><button class="aui-button toolbar-item" id="rte-button-preview" title="Preview" type="button"><span class="trigger-text">Preview</span></button></div><div class="save-button-container"><button class="aui-button aui-button-primary" type="submit" id="rte-button-publish" name="confirm" value="Save" title="Save"><span class="trigger-text">Save</span></button></div><button class="toolbar-item-link aui-button aui-button-link" type="submit" id="rte-button-cancel" name="cancel" value="cancel"><span class="trigger-text">Cancel</span></button></div></div></div></div>
+    
+    
+</div>
+
+
+
+<script type="text/x-template" title="dynamic-editor-metadata" id="dynamic-editor-metadata-template">
+            <meta name="ajs-use-watch" content="false">
+            <meta name="ajs-attachment-source-content-id" content="6966046">
+            <meta name="ajs-use-inline-tasks" content="true">
+            <meta name="ajs-heartbeat" content="true">
+            <meta name="ajs-action-locale" content="en_GB">
+            <meta name="ajs-editor-plugin-resource-prefix" content="/s/en_GB/5987/7f4d200af80c8d2bb74491844d32cdca053c56a4.11/5.8.8/_">
+            <meta name="ajs-existing-draft-id" content="0">
+            <meta name="ajs-user-watching-own-content" content="false">
+            <meta name="ajs-new-page" content="false">
+            <meta name="ajs-content-id" content="6966046">
+            <meta name="ajs-editor-mode" content="richtext">
+            <meta name="ajs-form-name" content="inlinecommentform">
+            <meta name="ajs-auto-start" content="false">
+            <meta name="ajs-can-attach-files" content="false">
+            <meta name="ajs-draft-id" content="0">
+            <meta name="ajs-shared-drafts" content="false">
+            <meta name="ajs-min-editor-height" content="150">
+            <meta name="ajs-draft-share-id" content="">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-version-comment" content="">
+            <meta name="ajs-draft-type" content="page">
+                
+            		    <meta name="ajs-max-thumb-width" content="300">
+		    <meta name="ajs-max-thumb-height" content="300">
+		    <meta name="ajs-can-send-email" content="true">
+		    <meta name="ajs-is-dev-mode" content="false">
+		    <meta name="ajs-draft-save-interval" content="30000">
+		    <meta name="ajs-show-hidden-user-macros" content="false">
+		    <meta name="ajs-is-admin" content="false">
+		    <meta name="ajs-heartbeat-interval" content="30000">
+	
+    </script>
+
+<script type="text/x-template" title="tableForm" id="table-form-template">
+    <form id="tinymce-table-form" class="aui">
+        <div class="field-group">
+            <label for="rows">Rows</label>
+            <input id="rows" name="rows" type="text" size="3" autocomplete="off" value="{0}">
+        </div>
+        <div class="field-group">
+            <label for="cols">Columns</label>
+            <input id="cols" name="cols" type="text" size="3" autocomplete="off" value="{1}">
+        </div>
+        <div class="field-group hidden">
+            <input id="width" type="hidden" name="width" value="">
+            <label for="width">Width</label>
+        </div>
+        <div class="group">
+            <div class="checkbox">
+                <input id="table-heading-checkbox" class="checkbox" type="checkbox" name="heading" checked="checked" value="true">
+                <label for="table-heading-checkbox">First row is heading</label>
+            </div>
+        </div>
+        <div class="group hidden">
+            <div class="checkbox">
+                <input id="table-equal-width-columns-checkbox" class="checkbox" type="checkbox" name="equal-width-columns" value="false">
+                <label for="table-equal-width-columns-checkbox">Equal width columns</label>
+            </div>
+        </div>
+    </form>
+</script>
+<input name="draftId" value="0" id="draftId" type="hidden"><input name="originalVersion" value="1" id="originalVersion" type="hidden">    <input name="atl_token" value="154889af874f1a29b09579875f63588a16ce8ecb" type="hidden">
+</div></body></html>
