@@ -1,0 +1,23 @@
+
+/* Custom styles for Confluence (included for all themes by default) */
+
+#header .aui-header {  
+  background-color: #000000;  
+}  
+#quick-search-query {  
+  background-color: #666666;  
+}  
+.sv-theme-navigation-container a {  
+  color: #333333;  
+}  
+.sv-theme-navigation-container span.plugin_pagetree_children_span a {  
+  color: #666666;  
+  font-size: 12px;  
+  font-family: Arial, sans-serif;  
+  line-height: 18px;  
+}  
+
+
+/* End custom styles for Confluence */
+
+
