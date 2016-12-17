@@ -1,0 +1,7 @@
+module server { 
+   module time { 
+      interface  ITimeService  { 
+	string  getServerTime(); 
+      };
+   };
+};
